@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bahan Ajar — Noodu Academy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --ink: #0d203f;
+    --ink-soft: #33507a;
+    --muted: #8a93a5;
+    --paper: #fafaf6;
+    --line: #e3e6ec;
+    --blue: #3366ff;
+    --orange: #f2722b;
+    --tint: #edf2ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 44px 24px 80px; }
+  .top { display: flex; align-items: center; gap: 16px; margin-bottom: 56px; }
+  .top img { height: 26px; }
+  .top span { color: var(--ink-soft); font-size: 15px; font-weight: 500; }
+  .top .rule { width: 1px; height: 22px; background: var(--line); }
+
+  .hero { display: grid; grid-template-columns: 1fr 210px; gap: 32px; align-items: center; }
+  h1 { margin: 0 0 14px; font-size: 46px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+  .hero p { margin: 0; font-size: 19px; line-height: 1.5; color: var(--ink-soft); max-width: 46ch; }
+  .hero img { width: 100%; }
+  .rule-orange { width: 104px; height: 5px; background: var(--orange); border-radius: 3px; margin: 30px 0 44px; }
+
+  h2 { font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+       color: var(--ink-soft); margin: 0 0 20px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .card {
+    display: block; padding: 22px 24px; border: 1px solid var(--line); border-radius: 14px;
+    background: #fff; text-decoration: none; color: inherit;
+  }
+  a.card:hover { border-color: var(--blue); box-shadow: 0 6px 20px rgba(51, 102, 255, .12); }
+  .card--soon { background: transparent; border-style: dashed; }
+  .card .n { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: var(--blue); }
+  .card--soon .n { color: var(--muted); }
+  .card h3 { margin: 8px 0 6px; font-size: 20px; font-weight: 700; letter-spacing: -.015em; }
+  .card p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+  .card--soon h3, .card--soon p { color: var(--muted); }
+
+  .note { margin-top: 48px; padding: 22px 26px; background: var(--tint); border-radius: 14px;
+          font-size: 16px; line-height: 1.55; }
+  .note b { display: block; margin-bottom: 6px; }
+
+  @media (max-width: 620px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero img { width: 150px; }
+    h1 { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <img src="assets/noodu-logo.png" alt="noodu">
+    <span class="rule"></span>
+    <span>Bahan Ajar</span>
+  </div>
+
+  <div class="hero">
+    <div>
+      <h1>Build &amp; Publish with AI</h1>
+      <p>Belajar membangun dan mempublikasikan project dengan bantuan AI,
+        dari nol sampai online.</p>
+    </div>
+    <img src="assets/noo-wave.png" alt="">
+  </div>
+
+  <div class="rule-orange"></div>
+
+  <h2>Modul</h2>
+  <div class="grid">
+
+    <a class="card" href="build-publish-with-ai/m01-coding-environment.html">
+      <span class="n">Modul 1</span>
+      <h3>Coding Environment</h3>
+      <p>VPS, akses SSH, dan VS Code Server.</p>
+    </a>
+
+    <div class="card card--soon">
+      <span class="n">Modul 2</span>
+      <h3>Vibe Coding</h3>
+      <p>Antigravity CLI dan AI dalam alur kerja.</p>
+    </div>
+
+    <div class="card card--soon">
+      <span class="n">Modul 3</span>
+      <h3>Run Your Project</h3>
+      <p>Source code, dependency, menjalankan di VPS.</p>
+    </div>
+
+    <div class="card card--soon">
+      <span class="n">Modul 4</span>
+      <h3>Understanding Port</h3>
+      <p>Port, port forwarding, akses internet.</p>
+    </div>
+
+    <div class="card card--soon">
+      <span class="n">Modul 5</span>
+      <h3>Cloudflare</h3>
+      <p>Domain, DNS, dan Cloudflare.</p>
+    </div>
+
+    <div class="card card--soon">
+      <span class="n">Modul 6</span>
+      <h3>Connect Domain with AI</h3>
+      <p>API, Cloudflare API, AI sebagai interface.</p>
+    </div>
+
+    <div class="card card--soon">
+      <span class="n">Modul 7</span>
+      <h3>Publish</h3>
+      <p>Publikasi dan verifikasi server sampai domain.</p>
+    </div>
+
+    <div class="card card--soon">
+      <span class="n">Modul 8</span>
+      <h3>Practical Exam</h3>
+      <p>Workflow build &amp; publish secara mandiri.</p>
+    </div>
+
+    <div class="card card--soon">
+      <span class="n">Modul 9</span>
+      <h3>Final Project</h3>
+      <p>Build → Run → Publish project sendiri.</p>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <b>Mencetak ke PDF</b>
+    Buka deck-nya, lalu Print → Save as PDF dengan ukuran kertas
+    13.333 × 7.5 inci, margin nol, dan background graphics aktif.
+  </div>
+
+</div>
+</body>
+</html>
