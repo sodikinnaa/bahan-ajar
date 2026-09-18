@@ -1,0 +1,494 @@
+/* Noodu Academy — template slide bahan ajar
+   Kanvas 1280x720 px (setara 960x540 pt / 16:9). */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --ink: #0d203f;
+  --ink-soft: #33507a;
+  --muted: #8a93a5;
+  --paper: #fafaf6;
+  --line: #d9dde5;
+
+  --blue: #3366ff;
+  --orange: #f2722b;
+  --green: #49c08b;
+
+  --tint-blue: #edf2ff;
+  --tint-green: #e2f4eb;
+  --tint-orange: #fff0e5;
+  --card-dark: #203956;
+
+  --pad: 58px;
+  --font: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e8e9ec;
+  font-family: var(--font);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- kanvas slide ---------- */
+
+.slide {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  margin: 28px auto;
+  padding: 44px var(--pad) 40px;
+  background: var(--paper);
+  overflow: hidden;
+  box-shadow: 0 10px 34px rgba(13, 32, 63, .16);
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--blue);
+}
+
+.slide--dark { background: var(--ink); color: #fff; }
+.slide--dark::before { background: var(--blue); }
+
+/* ---------- topbar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 34px;
+}
+
+.topbar__logo { height: 26px; margin-left: 14px; }
+.slide--dark .topbar__logo {
+  background: #fff;
+  border-radius: 7px;
+  padding: 8px 12px;
+  height: 28px;
+  box-sizing: content-box;
+}
+
+.topbar__rule { width: 1px; height: 22px; background: var(--line); }
+.slide--dark .topbar__rule { background: rgba(255, 255, 255, .28); }
+
+.topbar__meta { font-size: 16px; font-weight: 500; color: var(--ink-soft); }
+.slide--dark .topbar__meta { color: rgba(255, 255, 255, .75); }
+
+.topbar__label {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.slide--dark .topbar__label { color: rgba(255, 255, 255, .72); }
+
+/* ---------- judul ---------- */
+
+.slide h1 {
+  margin: 22px 0 30px;
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: -.028em;
+  line-height: 1.08;
+}
+
+.slide--cover h1 {
+  margin: 14px 0 26px;
+  font-size: 54px;
+  line-height: 1.14;
+}
+
+/* ---------- tata letak ---------- */
+
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.cols--wide-left { grid-template-columns: 1.15fr 1fr; }
+.cols--wide-right { grid-template-columns: 1fr 1.15fr; }
+
+/* ---------- teks umum ---------- */
+
+.lead { font-size: 21px; line-height: 1.5; color: var(--ink); margin: 0 0 18px; }
+.slide--dark .lead { color: rgba(255, 255, 255, .86); }
+
+.steps, .bullets { margin: 0; padding: 0; list-style: none; }
+
+.steps li, .bullets li {
+  position: relative;
+  font-size: 20px;
+  line-height: 1.38;
+  padding: 0 0 0 30px;
+  margin-bottom: 15px;
+}
+
+.steps { counter-reset: s; }
+.steps li::before {
+  counter-increment: s;
+  content: counter(s) '.';
+  position: absolute;
+  left: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.bullets li::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.subhead {
+  margin: 0 0 16px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -.012em;
+}
+
+.note { margin: 16px 0 0; font-size: 16px; color: var(--muted); }
+.slide--dark .note { color: rgba(255, 255, 255, .58); }
+
+.tok {
+  font-family: var(--mono);
+  font-size: .86em;
+  background: var(--tint-green);
+  color: var(--ink);
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+/* ---------- code block ---------- */
+
+.code {
+  background: var(--ink);
+  border-radius: 12px;
+  padding: 20px 24px 24px;
+  color: #eef2f9;
+}
+
+.slide--dark .code { background: var(--card-dark); }
+
+.code__label {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #8fa3c4;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  margin-bottom: 14px;
+}
+
+.code pre {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.62;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.code .c { color: #8fa3c4; }
+.code .k { color: #7fb0ff; }
+.code .s { color: #8fe3b8; }
+
+/* ---------- tabel ---------- */
+
+table.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+table.tbl th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 14px 10px 0;
+  border-bottom: 2px solid var(--ink);
+}
+
+table.tbl td {
+  padding: 11px 14px 11px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.32;
+}
+
+table.tbl tr:last-child td { border-bottom: 0; }
+
+/* ---------- checklist ---------- */
+
+.checklist { margin: 0; padding: 0; list-style: none; }
+
+.checklist li {
+  position: relative;
+  font-size: 20px;
+  line-height: 1.34;
+  padding: 0 0 15px 34px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.checklist li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+
+.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--ink-soft);
+  border-radius: 3px;
+}
+
+/* ---------- callout ---------- */
+
+.callout {
+  background: var(--tint-blue);
+  border-radius: 14px;
+  padding: 24px 28px;
+  color: var(--ink);
+}
+
+.callout--green { background: var(--tint-green); }
+.callout--orange { background: var(--tint-orange); }
+.callout--dark { background: var(--card-dark); color: #fff; }
+
+.callout h2 {
+  margin: 0 0 14px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.callout p { margin: 0 0 12px; font-size: 19px; line-height: 1.42; }
+.callout p:last-child { margin-bottom: 0; }
+
+.callout .bullets li, .callout .steps li { font-size: 19px; margin-bottom: 12px; }
+.callout .bullets li:last-child, .callout .steps li:last-child { margin-bottom: 0; }
+.callout .checklist li { font-size: 19px; }
+
+/* ---------- NOO bilang ---------- */
+
+.noo-says {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--tint-blue);
+  border-left: 5px solid var(--blue);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 26px 18px 20px;
+  color: var(--ink);
+}
+
+.noo-says img { width: 84px; flex: none; }
+
+.noo-says h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.noo-says p { margin: 0; font-size: 17px; line-height: 1.42; }
+
+/* ---------- Teman belajarmu ---------- */
+
+.noo-buddy {
+  position: absolute;
+  right: var(--pad);
+  bottom: 62px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.noo-buddy--left { right: auto; left: var(--pad); }
+
+.noo-buddy__bubble {
+  background: var(--tint-blue);
+  border-radius: 12px;
+  padding: 16px 22px;
+  max-width: 290px;
+  color: var(--ink);
+}
+
+.noo-buddy--green .noo-buddy__bubble { background: var(--tint-green); }
+.noo-buddy--orange .noo-buddy__bubble { background: var(--tint-orange); }
+
+.noo-buddy__tag {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 7px;
+}
+
+.noo-buddy--green .noo-buddy__tag { color: #1f9a68; }
+.noo-buddy--orange .noo-buddy__tag { color: #c2571a; }
+
+.noo-buddy__bubble p { margin: 0; font-size: 17px; line-height: 1.32; }
+
+.noo-buddy img { width: 134px; margin-bottom: -6px; }
+
+/* ---------- cover ---------- */
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 44px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+.badges { display: flex; gap: 10px; margin-bottom: 18px; }
+
+.badge {
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border-radius: 999px;
+}
+
+.cover-rule {
+  width: 116px;
+  height: 5px;
+  background: var(--orange);
+  border-radius: 3px;
+  margin: 28px 0 22px;
+}
+
+.cover-project { font-size: 21px; margin: 0 0 8px; }
+.cover-project b { font-weight: 700; }
+.cover-meta { font-size: 17px; color: var(--muted); margin: 0; }
+
+.cover-card {
+  position: relative;
+  background: var(--tint-blue);
+  border-radius: 20px;
+  padding: 26px 28px 22px;
+  text-align: center;
+}
+
+.cover-card__kicker {
+  position: absolute;
+  top: 26px;
+  left: 28px;
+  right: 152px;
+  margin: 0;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  line-height: 1.24;
+}
+
+.cover-card__note {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  width: 96px;
+  font-size: 13px;
+  line-height: 1.34;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+.cover-card__num {
+  position: absolute;
+  top: 86px;
+  right: 26px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover-card__art { width: 282px; margin: 62px 0 14px; }
+.cover-card__line { margin: 0; font-size: 18px; font-weight: 700; }
+.cover-card__sub { margin: 6px 0 0; font-size: 13px; color: var(--ink-soft); }
+
+/* ---------- footer ---------- */
+
+.footer {
+  position: absolute;
+  left: var(--pad);
+  right: var(--pad);
+  bottom: 26px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.slide--dark .footer { color: rgba(255, 255, 255, .7); }
+
+.footer__track {
+  margin-left: auto;
+  width: 160px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(13, 32, 63, .12);
+  overflow: hidden;
+}
+
+.slide--dark .footer__track { background: rgba(255, 255, 255, .22); }
+
+.footer__bar { height: 100%; background: var(--blue); border-radius: 2px; }
+
+.footer__num {
+  margin-left: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--dark .footer__num { color: #fff; }
+
+/* ---------- cetak ke PDF ---------- */
+
+@page { size: 13.333in 7.5in; margin: 0; }
+
+@media print {
+  body { background: #fff; }
+  .slide {
+    margin: 0;
+    box-shadow: none;
+    break-after: page;
+  }
+  .slide:last-child { break-after: auto; }
+}

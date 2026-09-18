@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Modul 1 — Coding Environment</title>
+<link rel="stylesheet" href="../assets/noodu-slides.css">
+</head>
+<body data-meta="Modul 1 / Coding Environment"
+      data-brand="Noodu Academy / Build &amp; Publish with AI"
+      data-assets="../assets">
+
+<!-- 01 -->
+<section class="slide slide--cover" data-label="Mulai di sini">
+  <div class="cover-grid">
+    <div>
+      <div class="badges">
+        <span class="badge">Modul 1</span>
+        <span class="badge">Coding Environment</span>
+      </div>
+      <h1>Sewa servernya.<br>Pasang editornya.<br>Ngoding dari browser.</h1>
+      <p class="lead">VPS, akses SSH, dan VS Code Server untuk satu lingkungan
+        kerja yang selalu siap.</p>
+      <div class="cover-rule"></div>
+      <p class="cover-project"><b>Course:</b> Build &amp; Publish with AI</p>
+      <p class="cover-meta">Private Thematics · Modul 1 · 90 menit</p>
+    </div>
+    <div class="cover-card">
+      <p class="cover-card__kicker">Yuk, belajar bareng Noo!</p>
+      <p class="cover-card__note">Teman belajar. Partner berkarya.</p>
+      <span class="cover-card__num">1</span>
+      <img class="cover-card__art" src="../assets/noo-wave.png" alt="">
+      <p class="cover-card__line">Siapkan markasnya, mulai karyamu.</p>
+      <p class="cover-card__sub">Build Today. Go Online Tomorrow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide" data-label="Peta belajar">
+  <h1>Misi: satu environment yang selalu siap.</h1>
+  <div class="cols">
+    <div class="callout callout--green">
+      <h2>Target sesi ini</h2>
+      <ul class="checklist">
+        <li>VPS bisa diakses lewat SSH.</li>
+        <li>User kerja non-root sudah aktif.</li>
+        <li>code-server berjalan sebagai service.</li>
+        <li>Editor terbuka di browser laptop.</li>
+        <li>Git dan folder kerja siap dipakai.</li>
+      </ul>
+    </div>
+    <table class="tbl">
+      <tr><th>Menit</th><th>Kegiatan</th></tr>
+      <tr><td>0–10</td><td>Kenalan VPS dan remote development</td></tr>
+      <tr><td>10–25</td><td>Masuk SSH dan amankan server</td></tr>
+      <tr><td>25–45</td><td>Pasang code-server</td></tr>
+      <tr><td>45–60</td><td>Konfigurasi dan akses browser</td></tr>
+      <tr><td>60–80</td><td>Praktik mandiri</td></tr>
+      <tr><td>80–90</td><td>Challenge dan refleksi</td></tr>
+    </table>
+  </div>
+  <div class="noo-buddy noo-buddy--green">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Ini misi kita.<br>Siap mulai?</p>
+    </div>
+    <img src="../assets/noo-tablet.png" alt="">
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="slide" data-label="Titik berangkat">
+  <h1>Dari laptop pribadi ke server yang selalu hidup.</h1>
+  <div class="cols">
+    <table class="tbl">
+      <tr><th>Selama ini</th><th>Mulai sekarang</th></tr>
+      <tr><td>Kode di laptop</td><td>Kode di VPS</td></tr>
+      <tr><td>Nyala saat laptop nyala</td><td>Nyala sepanjang hari</td></tr>
+      <tr><td>Hanya kamu yang bisa buka</td><td>Bisa dibuka dari mana saja</td></tr>
+      <tr><td>Ganti device, setup ulang</td><td>Ganti device, buka browser</td></tr>
+      <tr><td>Siap dipakai sendiri</td><td>Siap dipublikasikan</td></tr>
+    </table>
+    <div class="callout">
+      <h2>Satu environment berlanjut</h2>
+      <p>Seluruh modul berikutnya memakai VPS yang kamu siapkan hari ini.</p>
+      <p>Simpan IP, nama user, dan password di tempat yang aman.</p>
+      <p>Domain dan publikasi dibahas pada Modul 5 sampai 7.</p>
+    </div>
+  </div>
+  <div class="noo-buddy">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Fondasinya dulu.<br>Sisanya menyusul.</p>
+    </div>
+    <img src="../assets/noo-blocks.png" alt="">
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide" data-label="Konsep VPS">
+  <h1>Komputer sewaan yang tidak pernah kamu matikan.</h1>
+  <div class="cols">
+    <ul class="bullets">
+      <li>VPS adalah Virtual Private Server.</li>
+      <li>Satu mesin fisik dibagi menjadi beberapa server virtual.</li>
+      <li>Setiap VPS punya IP publik sendiri.</li>
+      <li>Kamu memegang akses penuh lewat terminal.</li>
+      <li>Disewa per bulan dan menyala terus.</li>
+    </ul>
+    <div>
+      <div class="callout callout--green">
+        <h2>Kenapa bukan laptop?</h2>
+        <p>Laptop ikut mati saat ditutup. Server tidak.</p>
+        <p>Publikasi butuh alamat yang bisa dihubungi kapan saja.</p>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-book.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Spesifikasi kecil sudah cukup untuk modul ini. Satu vCPU dengan
+            1 GB RAM mampu menjalankan code-server.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide" data-label="Persiapan">
+  <h1>Siapkan lima hal sebelum menyentuh terminal.</h1>
+  <div class="cols">
+    <ol class="steps">
+      <li>Akun penyedia VPS yang sudah aktif.</li>
+      <li>IP publik server.</li>
+      <li>User dan password awal dari penyedia.</li>
+      <li>Aplikasi terminal di laptop.</li>
+      <li>Catatan pribadi untuk menyimpan kredensial.</li>
+    </ol>
+    <div>
+      <div class="code">
+        <div class="code__label">Terminal · laptop</div>
+        <pre><span class="c"># pola perintahnya</span>
+ssh &lt;user&gt;@&lt;ip-server&gt;
+
+<span class="c"># contoh</span>
+ssh root@203.0.113.10</pre>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-thinking.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>203.0.113.10 hanya contoh. Pakai IP milikmu sendiri, dan jangan
+            membagikan password server di grup kelas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide" data-label="Akses server">
+  <h1>Pintu masuknya satu: SSH.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · laptop</div>
+      <pre>$ ssh root@203.0.113.10
+
+<span class="c"># pertama kali tersambung</span>
+Are you sure you want to continue
+connecting? <span class="s">yes</span>
+
+<span class="c"># prompt berubah = kamu sudah di server</span>
+root@noodu-vps:~#</pre>
+    </div>
+    <div>
+      <div class="callout callout--green">
+        <h2>Tanda kamu sudah masuk</h2>
+        <p>Prompt berubah menjadi nama server, bukan nama laptop.</p>
+        <p>Setiap perintah yang diketik dijalankan di server.</p>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-laptop.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Koneksi terputus itu wajar. Ulangi perintah ssh; pekerjaan yang
+            sudah tersimpan tidak ikut hilang.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide" data-label="Keamanan awal">
+  <h1>Jangan ngoding sebagai root.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server</div>
+      <pre>apt update &amp;&amp; apt upgrade -y
+
+adduser noodu
+usermod -aG sudo noodu
+
+su - noodu</pre>
+    </div>
+    <div class="callout callout--orange">
+      <h2>Kenapa bukan root?</h2>
+      <p>Root menjalankan apa pun tanpa konfirmasi.</p>
+      <p>Satu salah ketik dapat merusak seluruh server.</p>
+      <p>User biasa memaksamu sadar setiap kali menulis sudo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide" data-label="code-server">
+  <h1>VS Code yang tinggal di server.</h1>
+  <div class="cols">
+    <table class="tbl">
+      <tr><th>Bagian</th><th>Letaknya</th></tr>
+      <tr><td>Editor</td><td>Berjalan di VPS</td></tr>
+      <tr><td>File project</td><td>Tersimpan di VPS</td></tr>
+      <tr><td>Terminal</td><td>Terminal VPS</td></tr>
+      <tr><td>Extension</td><td>Terpasang di VPS</td></tr>
+      <tr><td>Tampilan</td><td>Browser di laptopmu</td></tr>
+    </table>
+    <div class="callout">
+      <h2>Satu kali pasang</h2>
+      <p>Ganti laptop, buka browser, semua sudah pada tempatnya.</p>
+      <p>Tidak ada lagi alasan “di laptop saya jalan, kok”.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide" data-label="Instalasi">
+  <h1>Satu perintah untuk memasang editor.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server (user noodu)</div>
+      <pre>curl -fsSL https://code-server.dev/install.sh | sh
+
+code-server --version</pre>
+    </div>
+    <div>
+      <div class="callout callout--green">
+        <h2>Yang terjadi saat instalasi</h2>
+        <ul class="bullets">
+          <li>Skrip mengenali sistem operasi server.</li>
+          <li>Paket code-server diunduh dan dipasang.</li>
+          <li>Service systemd ikut disiapkan.</li>
+          <li>File konfigurasi awal dibuat otomatis.</li>
+        </ul>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-tablet.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Baca output sampai selesai. Baris “code-server has been installed”
+            menandakan instalasi berhasil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-label="Jalankan service">
+  <h1>Hidup sendiri, bahkan setelah server restart.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server</div>
+      <pre>sudo systemctl enable --now code-server@$USER
+
+systemctl status code-server@$USER</pre>
+    </div>
+    <div>
+      <div class="callout callout--green">
+        <h2>Baca statusnya</h2>
+        <p><b>active (running)</b> berarti editor sudah berjalan.</p>
+        <p><b>failed</b> berarti ada konfigurasi yang perlu diperiksa.</p>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-thumbsup.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p><span class="tok">enable</span> membuat service ikut menyala saat
+            server dinyalakan ulang. <span class="tok">--now</span>
+            menjalankannya sekarang juga.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-label="Konfigurasi">
+  <h1>Tiga baris yang menentukan akses.</h1>
+  <div class="cols">
+    <div>
+      <div class="code">
+        <div class="code__label">~/.config/code-server/config.yaml</div>
+        <pre><span class="k">bind-addr</span>: 0.0.0.0:8080
+<span class="k">auth</span>: password
+<span class="k">password</span>: <span class="s">ganti-dengan-punyamu</span></pre>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-pointing.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Jalankan <span class="tok">systemctl restart</span> setelah
+            mengubah file ini. Tanpa restart, konfigurasi lama masih dipakai.</p>
+        </div>
+      </div>
+    </div>
+    <table class="tbl">
+      <tr><th>Baris</th><th>Artinya</th></tr>
+      <tr><td>bind-addr</td><td>Alamat dan port yang didengarkan</td></tr>
+      <tr><td>0.0.0.0</td><td>Menerima akses dari luar server</td></tr>
+      <tr><td>8080</td><td>Nomor port code-server</td></tr>
+      <tr><td>auth</td><td>Cara masuk ke editor</td></tr>
+      <tr><td>password</td><td>Kunci yang kamu pakai sendiri</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-label="Akses editor">
+  <h1>Alamatnya IP server, bukan localhost.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Browser · laptop</div>
+      <pre>http://203.0.113.10:8080
+
+<span class="c"># bukan ini, karena localhost</span>
+<span class="c"># menunjuk ke laptopmu sendiri</span>
+http://localhost:8080</pre>
+    </div>
+    <div class="callout callout--orange">
+      <h2>Belum bisa dibuka?</h2>
+      <p>Port 8080 mungkin masih tertutup firewall server.</p>
+      <p>Itu pembahasan Modul 4: Understanding Port.</p>
+      <p>Untuk sekarang, pastikan service sudah active.</p>
+    </div>
+  </div>
+  <div class="noo-buddy">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Editornya hidup.<br>Sekarang di browsermu.</p>
+    </div>
+    <img src="../assets/noo-cheer.png" alt="">
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-label="Lingkungan kerja">
+  <h1>Editor saja belum cukup.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server</div>
+      <pre>sudo apt install -y git curl unzip
+
+git config --global user.name <span class="s">"Nama Kamu"</span>
+git config --global user.email <span class="s">"email@kamu"</span></pre>
+    </div>
+    <div>
+      <div class="callout callout--green">
+        <h2>Pasang sesuai kebutuhan</h2>
+        <ul class="bullets">
+          <li>Git untuk menyimpan riwayat kode.</li>
+          <li>Runtime bahasa yang dipakai project.</li>
+          <li>Extension dari panel kiri editor.</li>
+        </ul>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-book.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Pasang yang dibutuhkan saja. Menambah paket nanti jauh lebih mudah
+            daripada membersihkan server yang sudah penuh.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-label="Folder kerja">
+  <h1>Rapi sejak awal, gampang dicari nanti.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Struktur di ~/projects</div>
+      <pre>~/projects
+├── latihan/
+├── final-project/
+└── CATATAN.md</pre>
+    </div>
+    <div class="callout callout--green">
+      <h2>Aturan sederhana</h2>
+      <ul class="bullets">
+        <li>Satu project satu folder.</li>
+        <li>Nama folder huruf kecil tanpa spasi.</li>
+        <li>Semua project berada di bawah ~/projects.</li>
+        <li>IP, user, dan port dicatat di CATATAN.md.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="slide" data-label="Praktik terbimbing">
+  <h1>Kita pasang bersama, langkah demi langkah.</h1>
+  <div class="cols">
+    <ol class="steps">
+      <li>Masuk ke server lewat SSH.</li>
+      <li>Perbarui paket sistem.</li>
+      <li>Buat user kerja dan beri akses sudo.</li>
+      <li>Pasang code-server.</li>
+      <li>Nyalakan service dan periksa statusnya.</li>
+      <li>Ubah password pada config.yaml.</li>
+      <li>Buka editor lewat browser.</li>
+    </ol>
+    <div class="callout">
+      <h2>Catat sambil jalan</h2>
+      <p>Tulis IP, nama user, dan port di catatanmu.</p>
+      <p>Ketiganya dipakai lagi mulai modul berikutnya.</p>
+    </div>
+  </div>
+  <div class="noo-buddy noo-buddy--green">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Siapkan terminalmu.<br>Kita jalan bareng.</p>
+    </div>
+    <img src="../assets/noo-blocks.png" alt="">
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="slide" data-label="Praktik mandiri">
+  <h1>Buktikan environment selama 20 menit.</h1>
+  <div class="cols">
+    <ol class="steps">
+      <li>Restart server, pastikan editor kembali hidup.</li>
+      <li>Buat folder ~/projects/latihan.</li>
+      <li>Buat satu file uji lalu simpan.</li>
+      <li>Jalankan git init di folder tersebut.</li>
+      <li>Buka terminal dari dalam editor.</li>
+      <li>Tutup browser, buka lagi, pastikan file tetap ada.</li>
+    </ol>
+    <div class="callout">
+      <h2>Bukti yang disimpan</h2>
+      <p>Isi E01–E06 pada CHECKLIST-ENV.csv.</p>
+      <p>Tulis hasil aktual, status, dan buktinya.</p>
+      <p>Jika gagal, catat pesan error apa adanya.</p>
+    </div>
+  </div>
+  <div class="noo-buddy">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Sekarang giliranmu<br>menyiapkan markasnya.</p>
+    </div>
+    <img src="../assets/noo-laptop.png" alt="">
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-label="Challenge">
+  <h1>Service active, browser tetap kosong. Kenapa?</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Temukan masalahnya · config.yaml</div>
+      <pre><span class="k">bind-addr</span>: 127.0.0.1:8080
+<span class="k">auth</span>: password
+<span class="k">password</span>: <span class="s">rahasia123</span></pre>
+    </div>
+    <div class="callout callout--green">
+      <p>127.0.0.1 hanya menerima koneksi dari dalam server itu sendiri.
+        Browser di laptopmu datang dari luar, sehingga permintaannya ditolak
+        sebelum sampai ke editor. Ganti menjadi 0.0.0.0, restart service,
+        lalu coba buka kembali.</p>
+    </div>
+  </div>
+  <div class="noo-buddy noo-buddy--orange">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Coba cari penyebabnya<br>sebelum buka jawaban.</p>
+    </div>
+    <img src="../assets/noo-thinking.png" alt="">
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-label="Debugging">
+  <h1>Telusuri dari laptop sampai server.</h1>
+  <table class="tbl">
+    <tr><th style="width:42%">Gejala</th><th>Yang diperiksa</th></tr>
+    <tr><td>SSH ditolak</td><td>IP, nama user, dan password server</td></tr>
+    <tr><td>Perintah code-server tidak dikenal</td><td>Instalasi selesai tanpa pesan error?</td></tr>
+    <tr><td>Status service failed</td><td>journalctl -u code-server@$USER</td></tr>
+    <tr><td>Browser tidak merespons</td><td>Nilai bind-addr dan firewall port 8080</td></tr>
+    <tr><td>Password selalu ditolak</td><td>Service sudah di-restart setelah diubah?</td></tr>
+  </table>
+  <div class="noo-says" style="margin-top:30px">
+    <img src="../assets/noo-pointing.png" alt="">
+    <div>
+      <h3>NOO bilang</h3>
+      <p>Baca pesan error sampai habis sebelum mengulang instalasi. Membangun
+        ulang server jarang menyelesaikan masalah konfigurasi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="slide" data-label="Checkpoint">
+  <h1>Environment siap dipakai bekerja.</h1>
+  <div class="cols">
+    <ul class="checklist">
+      <li>SSH berjalan tanpa hambatan.</li>
+      <li>User kerja non-root sudah aktif.</li>
+      <li>code-server hidup sebagai service.</li>
+      <li>Editor terbuka lewat IP dan port.</li>
+      <li>Git dan folder kerja sudah siap.</li>
+      <li>Kredensial tercatat di tempat aman.</li>
+    </ul>
+    <div class="callout callout--green">
+      <h2>Refleksi</h2>
+      <p>Apa beda 127.0.0.1 dengan 0.0.0.0?</p>
+      <p>Kenapa kita tidak bekerja sebagai root?</p>
+      <p>Bagaimana membuktikan editor tetap hidup setelah server restart?</p>
+    </div>
+  </div>
+  <div class="noo-buddy noo-buddy--green">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Buktikan lewat demo,<br>lalu jelaskan caranya.</p>
+    </div>
+    <img src="../assets/noo-scroll.png" alt="">
+  </div>
+</section>
+
+<!-- 20 -->
+<section class="slide slide--dark" data-label="Modul berikutnya">
+  <h1>Editornya siap. Sekarang ajak AI ikut ngoding.</h1>
+  <div class="cols">
+    <div>
+      <p class="lead">Berikutnya kita memasang Antigravity CLI, mengenal konsep
+        vibe coding, dan menaruh AI di dalam alur kerja harian.</p>
+      <div class="callout callout--dark">
+        <h2>Bawa ke Modul 2</h2>
+        <p>VPS yang berjalan, editor yang bisa dibuka dari browser, dan catatan
+          kredensialmu.</p>
+      </div>
+    </div>
+    <div>
+      <h2 class="subhead">Jalur kursus</h2>
+      <p class="lead"><b>Environment</b> → Vibe Coding → Run → Port → Cloudflare
+        → Domain → Publish → Exam → Final Project.</p>
+      <p class="note">Rujukan: VPS · SSH · code-server · systemd</p>
+    </div>
+  </div>
+  <div class="noo-buddy">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Markasnya sudah siap.<br>Lanjut ke AI!</p>
+    </div>
+    <img src="../assets/noo-cheer.png" alt="">
+  </div>
+</section>
+
+<script src="../assets/noodu-slides.js"></script>
+</body>
+</html>
