@@ -72,7 +72,7 @@ Dari project di lokal menjadi project online.
 | # | Modul | Fokus | Deck |
 | --- | --- | --- | --- |
 | 1 | Coding Environment | VPS, SSH, VS Code Server | [m01](build-publish-with-ai/m01-coding-environment.html) |
-| 2 | Vibe Coding | Antigravity CLI, AI dalam alur kerja | belum |
+| 2 | Vibe Coding | Antigravity CLI, AI dalam alur kerja | [m02](build-publish-with-ai/m02-vibe-coding.html) |
 | 3 | Run Your Project | Source code, dependency, menjalankan di VPS | belum |
 | 4 | Understanding Port | Port, port forwarding, akses internet | belum |
 | 5 | Cloudflare | Domain, DNS, Cloudflare | belum |

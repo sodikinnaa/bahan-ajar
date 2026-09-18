@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Modul 2 — Vibe Coding</title>
+<link rel="stylesheet" href="../assets/noodu-slides.css">
+</head>
+<body data-meta="Modul 2 / Vibe Coding"
+      data-brand="Noodu Academy / Build &amp; Publish with AI"
+      data-assets="../assets">
+
+<!-- 01 -->
+<section class="slide slide--cover" data-label="Mulai di sini">
+  <div class="cover-grid">
+    <div>
+      <div class="badges">
+        <span class="badge">Modul 2</span>
+        <span class="badge">Vibe Coding</span>
+      </div>
+      <h1>Yang biasa kamu ketik manual.<br>Sekarang tinggal kamu suruh.</h1>
+      <p class="lead">Pengenalan Antigravity CLI dan konsep vibe coding —
+        mengubah perintah manual menjadi instruksi ke AI, tanpa kehilangan
+        kendali atas apa yang terjadi di servermu.</p>
+      <div class="cover-rule"></div>
+      <p class="cover-project"><b>Course:</b> Build &amp; Publish with AI</p>
+      <p class="cover-meta">Private Thematics · Modul 2 · 90 menit</p>
+    </div>
+    <div class="cover-card">
+      <p class="cover-card__kicker">Yuk, belajar bareng Noo!</p>
+      <p class="cover-card__note">Teman belajar. Partner berkarya.</p>
+      <span class="cover-card__num">2</span>
+      <img class="cover-card__art" src="../assets/noo-laptop.png" alt="">
+      <p class="cover-card__line">Suruh AI-nya, awasi hasilnya.</p>
+      <p class="cover-card__sub">Build Today. Go Online Tomorrow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide" data-label="Peta belajar">
+  <h1>Misi: menyuruh tanpa kehilangan kendali.</h1>
+  <div class="cols">
+    <div class="callout callout--green">
+      <h2>Target sesi ini</h2>
+      <ul class="checklist">
+        <li>Antigravity CLI terpasang dan aktif.</li>
+        <li>Paham apa itu vibe coding, dan batasnya.</li>
+        <li>Bisa memberi instruksi yang jelas ke AI.</li>
+        <li>Terbiasa membaca hasil AI sebelum menjalankannya.</li>
+        <li>Tahu kapan pakai AI, kapan mengetik sendiri.</li>
+      </ul>
+    </div>
+    <table class="tbl">
+      <tr><th>Menit</th><th>Kegiatan</th></tr>
+      <tr><td>0–10</td><td>Dari perintah manual ke instruksi AI</td></tr>
+      <tr><td>10–20</td><td>Konsep vibe coding dan batasnya</td></tr>
+      <tr><td>20–35</td><td>Instalasi dan verifikasi Antigravity CLI</td></tr>
+      <tr><td>35–55</td><td>Instruksi pertama dan cara membacanya</td></tr>
+      <tr><td>55–80</td><td>Praktik mandiri</td></tr>
+      <tr><td>80–90</td><td>Challenge dan refleksi</td></tr>
+    </table>
+  </div>
+  <div class="noo-buddy noo-buddy--green">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Ini misi kita.<br>Siap mulai?</p>
+    </div>
+    <img src="../assets/noo-tablet.png" alt="">
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="slide" data-label="Titik berangkat">
+  <h1>Perintah yang sama, cara mengetiknya berbeda.</h1>
+  <div class="cols">
+    <table class="tbl">
+      <tr><th>Modul 1</th><th>Modul 2</th></tr>
+      <tr><td>Kamu ketik <span class="tok">adduser</span> sendiri</td><td>Kamu suruh AI membuat user</td></tr>
+      <tr><td>Kamu ketik perintah install satu per satu</td><td>Kamu jelaskan tujuannya ke AI</td></tr>
+      <tr><td>Kamu baca dokumentasi</td><td>AI meringkas, kamu tetap verifikasi</td></tr>
+      <tr><td>Kamu yang menjalankan perintah</td><td>Kamu yang tetap memutuskan menjalankan atau tidak</td></tr>
+    </table>
+    <div class="callout">
+      <h2>Yang tidak berubah</h2>
+      <p>Server yang dipakai tetap VPS dari Modul 1.</p>
+      <p>Terminal yang dipakai AI adalah terminal yang sama denganmu.</p>
+      <p>Tanggung jawab atas apa yang berjalan di server tetap ada di tanganmu.</p>
+    </div>
+  </div>
+  <div class="noo-buddy">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Bukan diganti,<br>tapi dipercepat.</p>
+    </div>
+    <img src="../assets/noo-blocks.png" alt="">
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide" data-label="Konsep">
+  <h1>Vibe coding: kamu jelaskan, AI menuliskan.</h1>
+  <div class="cols">
+    <ul class="bullets">
+      <li>Kamu menjelaskan tujuan dalam bahasa biasa.</li>
+      <li>AI menyusun perintah atau kode untuk mencapainya.</li>
+      <li>Hasilnya muncul di terminal yang sama seperti Modul 1.</li>
+      <li>Kamu yang memutuskan menjalankan, mengubah, atau menolaknya.</li>
+    </ul>
+    <div>
+      <div class="callout callout--green">
+        <h2>Kenapa disebut vibe coding</h2>
+        <p>Fokusnya pindah dari mengetik sintaks ke menjelaskan maksud.</p>
+        <p>Kecepatan bertambah, tapi tanggung jawab memahami tidak hilang.</p>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-thinking.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Vibe coding bukan berarti asal terima. Semakin cepat AI menulis,
+            semakin penting kamu membaca sebelum menjalankan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide" data-label="Batas kendali">
+  <h1>AI menyarankan. Kamu yang menjalankan.</h1>
+  <div class="cols">
+    <table class="tbl">
+      <tr><th>Yang dikerjakan AI</th><th>Yang tetap kamu putuskan</th></tr>
+      <tr><td>Menyusun perintah</td><td>Menjalankan atau tidak</td></tr>
+      <tr><td>Menulis draf kode</td><td>Menyimpan atau membuang</td></tr>
+      <tr><td>Menjelaskan error</td><td>Mempercayai atau memeriksa ulang</td></tr>
+      <tr><td>Menyarankan perubahan</td><td>Meng-commit ke Git</td></tr>
+    </table>
+    <div class="callout callout--orange">
+      <h2>Kesalahan yang sering terjadi</h2>
+      <p>Menyuruh AI mengerjakan semua hal, termasuk yang sebenarnya
+        lebih cepat dan lebih aman dikerjakan sendiri.</p>
+      <p>Menjalankan perintah dari AI tanpa membaca apa isinya.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide" data-label="Persiapan">
+  <h1>Antigravity CLI hidup di server yang sama.</h1>
+  <div class="cols">
+    <ol class="steps">
+      <li>Masuk ke VPS seperti biasa lewat SSH.</li>
+      <li>Pastikan code-server dari Modul 1 masih berjalan.</li>
+      <li>Siapkan akun untuk autentikasi Antigravity.</li>
+      <li>Siapkan folder project yang sudah ada.</li>
+    </ol>
+    <div class="noo-says">
+      <img src="../assets/noo-book.png" alt="">
+      <div>
+        <h3>NOO bilang</h3>
+        <p>Antigravity CLI dipasang di atas environment Modul 1, bukan
+          menggantikannya. Kalau code-server belum aktif, selesaikan itu
+          dulu sebelum lanjut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide" data-label="Instalasi">
+  <h1>Satu perintah, satu asisten baru di terminal.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server (user noodu)</div>
+      <pre>curl -fsSL https://antigravity.dev/install.sh | sh
+
+antigravity --version</pre>
+    </div>
+    <div>
+      <div class="callout callout--green">
+        <h2>Yang terjadi saat instalasi</h2>
+        <ul class="bullets">
+          <li>CLI terpasang di folder milik user noodu.</li>
+          <li>Tidak ada file project yang diubah.</li>
+          <li>Perintah <span class="tok">antigravity</span> menjadi tersedia
+            di terminal manapun kamu login.</li>
+        </ul>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-tablet.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Output versi yang muncul menandakan instalasi berhasil. Kalau
+            perintah tidak dikenal, buka terminal baru sebelum mengulang.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide" data-label="Autentikasi">
+  <h1>Hubungkan CLI dengan akunmu.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server</div>
+      <pre>antigravity login
+
+<span class="c"># buka tautan yang muncul, masuk dengan akunmu</span>
+<span class="c"># kembali ke terminal setelah berhasil</span>
+
+antigravity whoami</pre>
+    </div>
+    <div class="callout callout--green">
+      <h2>Tanda berhasil</h2>
+      <p><span class="tok">antigravity whoami</span> menampilkan email
+        akunmu, bukan pesan error.</p>
+      <p>Sesi login tersimpan di server, tidak perlu diulang setiap kali
+        masuk SSH.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide" data-label="Instruksi pertama">
+  <h1>Jelaskan maksudnya, bukan sintaksnya.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server</div>
+      <pre>antigravity ask <span class="s">"buatkan folder ~/projects/latihan-ai
+dan satu file index.html kosong di dalamnya"</span></pre>
+    </div>
+    <div>
+      <div class="callout callout--green">
+        <h2>Bedanya dengan mengetik manual</h2>
+        <p>Modul 1: kamu ketik <span class="tok">mkdir</span> dan
+          <span class="tok">touch</span> sendiri.</p>
+        <p>Modul 2: kamu jelaskan hasil akhirnya, AI yang menyusun
+          perintahnya.</p>
+      </div>
+      <div class="noo-says" style="margin-top:22px">
+        <img src="../assets/noo-pointing.png" alt="">
+        <div>
+          <h3>NOO bilang</h3>
+          <p>Instruksi yang menyebutkan lokasi dan nama secara pasti
+            menghasilkan perintah yang lebih bisa ditebak.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-label="Membaca hasil">
+  <h1>Baca dulu, baru jalankan.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Antigravity CLI · usulan perintah</div>
+      <pre><span class="c"># AI mengusulkan, belum dijalankan</span>
+mkdir -p ~/projects/latihan-ai
+touch ~/projects/latihan-ai/index.html
+
+<span class="c"># Jalankan? [y/n]</span></pre>
+    </div>
+    <div class="callout callout--orange">
+      <h2>Sebelum menekan y</h2>
+      <p>Apakah lokasi foldernya benar?</p>
+      <p>Apakah ada perintah yang menghapus atau menimpa sesuatu?</p>
+      <p>Kalau ragu, jawab tidak dan tanyakan ulang dengan lebih jelas.</p>
+    </div>
+  </div>
+  <div class="noo-buddy noo-buddy--orange">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Cepat itu bagus.<br>Asal tetap kamu yang baca.</p>
+    </div>
+    <img src="../assets/noo-thinking.png" alt="">
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-label="Kapan pakai apa">
+  <h1>Tidak semua hal perlu disuruh ke AI.</h1>
+  <table class="tbl">
+    <tr><th style="width:38%">Situasi</th><th>Lebih baik</th></tr>
+    <tr><td>Membuat satu folder atau file</td><td>Ketik manual, lebih cepat</td></tr>
+    <tr><td>Menyusun beberapa langkah sekaligus</td><td>Minta AI, lalu verifikasi</td></tr>
+    <tr><td>Perintah yang menghapus data</td><td>Ketik manual, jangan diwakilkan</td></tr>
+    <tr><td>Menjelaskan pesan error yang panjang</td><td>Minta AI meringkas</td></tr>
+    <tr><td>Konfigurasi yang sudah kamu hafal</td><td>Ketik manual</td></tr>
+  </table>
+  <div class="noo-says" style="margin-top:30px">
+    <img src="../assets/noo-book.png" alt="">
+    <div>
+      <h3>NOO bilang</h3>
+      <p>Semakin berisiko sebuah perintah, semakin besar alasan untuk
+        mengetiknya sendiri, bukan menyerahkannya ke AI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-label="Iterasi">
+  <h1>Instruksi pertama jarang sempurna.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server</div>
+      <pre>antigravity ask <span class="s">"tulis judul Halo Noodu
+di dalam index.html tadi"</span>
+
+<span class="c"># hasil kurang pas? perbaiki instruksinya</span>
+antigravity ask <span class="s">"ubah judulnya jadi
+tag h1, bukan teks biasa"</span></pre>
+    </div>
+    <div class="callout callout--green">
+      <h2>Wajar diulang</h2>
+      <p>Menajamkan instruksi sampai hasilnya sesuai bukan tanda gagal.</p>
+      <p>Ini pengganti proses coba-coba yang dulu kamu lakukan manual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-label="Tetap punyamu">
+  <h1>AI menulis draf. Git tetap kamu yang pegang.</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Terminal · server</div>
+      <pre>cd ~/projects/latihan-ai
+git init
+git add .
+git commit -m <span class="s">"draf awal dari AI, sudah diperiksa"</span></pre>
+    </div>
+    <div class="callout callout--green">
+      <h2>Kenapa commit manual</h2>
+      <p>Commit menandakan kamu sudah membaca dan menyetujui perubahan.</p>
+      <p>Pesan commit yang jujur memudahkanmu melacak bagian mana yang
+        berasal dari AI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-label="Praktik terbimbing">
+  <h1>Kita coba bersama, dari instruksi sampai commit.</h1>
+  <div class="cols">
+    <ol class="steps">
+      <li>Pasang dan login ke Antigravity CLI.</li>
+      <li>Minta AI membuat struktur folder project baru.</li>
+      <li>Baca usulan perintahnya sebelum menjawab y.</li>
+      <li>Minta AI menambahkan satu bagian sederhana ke file.</li>
+      <li>Perbaiki instruksi jika hasilnya belum sesuai.</li>
+      <li>Commit hasil akhirnya secara manual.</li>
+    </ol>
+    <div class="callout">
+      <h2>Catat sambil jalan</h2>
+      <p>Simpan instruksi yang berhasil di catatanmu.</p>
+      <p>Instruksi yang jelas hari ini akan lebih cepat dipakai lagi nanti.</p>
+    </div>
+  </div>
+  <div class="noo-buddy noo-buddy--green">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Siapkan terminalmu.<br>Kita jalan bareng.</p>
+    </div>
+    <img src="../assets/noo-blocks.png" alt="">
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="slide" data-label="Praktik mandiri">
+  <h1>Buktikan kendalimu selama 20 menit.</h1>
+  <div class="cols">
+    <ol class="steps">
+      <li>Minta AI membuat file catatan project sederhana.</li>
+      <li>Tolak satu usulan yang menurutmu kurang tepat, lalu perbaiki instruksinya.</li>
+      <li>Minta AI menjelaskan satu perintah sebelum kamu menjalankannya.</li>
+      <li>Kerjakan satu perubahan kecil secara manual tanpa AI.</li>
+      <li>Commit seluruh hasilnya dengan pesan yang jelas.</li>
+    </ol>
+    <div class="callout">
+      <h2>Bukti yang disimpan</h2>
+      <p>Isi V01–V05 pada CHECKLIST-VIBE.csv.</p>
+      <p>Tulis instruksi yang kamu pakai dan alasan menolak usulan AI.</p>
+    </div>
+  </div>
+  <div class="noo-buddy">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Sekarang giliranmu<br>yang pegang kendali.</p>
+    </div>
+    <img src="../assets/noo-laptop.png" alt="">
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="slide" data-label="Challenge">
+  <h1>AI mengusulkan ini. Kamu jawab y atau n?</h1>
+  <div class="cols">
+    <div class="code">
+      <div class="code__label">Antigravity CLI · usulan perintah</div>
+      <pre><span class="c"># instruksi: "bersihkan file lama di folder project"</span>
+rm -rf ~/projects/*
+
+<span class="c"># Jalankan? [y/n]</span></pre>
+    </div>
+    <div class="callout callout--green">
+      <p>Jawabannya n. Instruksi "bersihkan file lama" tidak sama dengan
+        "hapus semua project". Perintah ini akan menghapus seluruh folder
+        di ~/projects, termasuk pekerjaan dari Modul 1. Instruksi yang
+        vague menghasilkan perintah yang berbahaya. Tulis ulang instruksinya
+        dengan menyebutkan file dan lokasi yang pasti.</p>
+    </div>
+  </div>
+  <div class="noo-buddy noo-buddy--orange">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Coba cari alasannya<br>sebelum buka jawaban.</p>
+    </div>
+    <img src="../assets/noo-thinking.png" alt="">
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-label="Debugging">
+  <h1>Kalau AI-nya diam atau salah arah.</h1>
+  <table class="tbl">
+    <tr><th style="width:42%">Gejala</th><th>Yang diperiksa</th></tr>
+    <tr><td>Perintah antigravity tidak dikenal</td><td>Instalasi selesai, terminal baru sudah dibuka?</td></tr>
+    <tr><td>whoami tidak menampilkan akun</td><td>Login ulang dengan antigravity login</td></tr>
+    <tr><td>Usulan AI di luar folder project</td><td>Instruksi menyebutkan lokasi secara pasti?</td></tr>
+    <tr><td>Hasil AI tidak sesuai berulang kali</td><td>Instruksi terlalu umum, coba lebih spesifik</td></tr>
+    <tr><td>Ragu perintah aman atau tidak</td><td>Tanyakan dulu, jangan langsung jawab y</td></tr>
+  </table>
+  <div class="noo-says" style="margin-top:30px">
+    <img src="../assets/noo-pointing.png" alt="">
+    <div>
+      <h3>NOO bilang</h3>
+      <p>Jawab tidak dulu kalau ragu. Menanyakan ulang jauh lebih murah
+        daripada memulihkan file yang terlanjur terhapus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-label="Checkpoint">
+  <h1>AI membantu. Kendali tetap di tanganmu.</h1>
+  <div class="cols">
+    <ul class="checklist">
+      <li>Antigravity CLI terpasang dan login berhasil.</li>
+      <li>Bisa memberi instruksi yang menyebutkan hasil secara jelas.</li>
+      <li>Terbiasa membaca usulan perintah sebelum menjalankan.</li>
+      <li>Pernah menolak usulan AI dan memperbaiki instruksinya.</li>
+      <li>Tahu kapan lebih baik mengetik manual.</li>
+      <li>Commit tetap dilakukan secara sadar, bukan otomatis.</li>
+    </ul>
+    <div class="callout callout--green">
+      <h2>Refleksi</h2>
+      <p>Instruksi seperti apa yang menghasilkan perintah paling tepat?</p>
+      <p>Kapan kamu memilih mengetik sendiri daripada menyuruh AI?</p>
+      <p>Apa yang kamu periksa sebelum menjawab y?</p>
+    </div>
+  </div>
+  <div class="noo-buddy noo-buddy--green">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Buktikan lewat demo,<br>lalu jelaskan caranya.</p>
+    </div>
+    <img src="../assets/noo-scroll.png" alt="">
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="slide slide--dark" data-label="Modul berikutnya">
+  <h1>Sudah bisa menyuruh. Sekarang jalankan projectnya.</h1>
+  <div class="cols">
+    <div>
+      <p class="lead">Berikutnya kita membawa project sungguhan ke VPS:
+        memahami source code, dependency, dan menjalankannya sampai bisa
+        diakses.</p>
+      <div class="callout callout--dark">
+        <h2>Bawa ke Modul 3</h2>
+        <p>Environment yang berjalan, Antigravity CLI yang sudah login,
+          dan kebiasaan membaca sebelum menjalankan.</p>
+      </div>
+    </div>
+    <div>
+      <h2 class="subhead">Jalur kursus</h2>
+      <p class="lead">Environment → <b>Vibe Coding</b> → Run → Port →
+        Cloudflare → Domain → Publish → Exam → Final Project.</p>
+      <p class="note">Rujukan: Antigravity CLI · Prompting · Git</p>
+    </div>
+  </div>
+  <div class="noo-buddy">
+    <div class="noo-buddy__bubble">
+      <span class="noo-buddy__tag">Teman belajarmu · Noo</span>
+      <p>Instruksinya matang.<br>Lanjut jalankan project!</p>
+    </div>
+    <img src="../assets/noo-cheer.png" alt="">
+  </div>
+</section>
+
+<script src="../assets/noodu-slides.js"></script>
+</body>
+</html>
