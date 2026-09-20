@@ -1,224 +1,110 @@
-# Noodu Slide Generator - WordPress Plugin
+# Noodu Slide Generator
 
-AI-powered educational slide generator plugin for WordPress. Create professional presentations using OpenAI-compatible APIs.
+WordPress plugin yang membuat deck bahan ajar bergaya Noodu Academy lewat
+OpenAI atau endpoint apa pun yang kompatibel dengannya.
 
-## Features
+## Pasang
 
-✅ **AI-Powered Generation** - Create slides with OpenAI or compatible APIs
-✅ **Dynamic Model Selection** - Fetch and choose from available models
-✅ **PDF Export** - Generate publication-ready PDF presentations
-✅ **Project Management** - Store and manage all your generated modules
-✅ **Revision Tracking** - Track changes and revisions to presentations
-✅ **REST API** - Full REST API for programmatic access
-✅ **Shortcode Support** - Use `[noodu_generator]` on any page/post
-✅ **WordPress Native** - Uses WordPress database and settings
+1. **Plugins → Add New → Upload Plugin**, pilih `noodu-slide-generator.zip`
+2. **Install Now**, lalu **Activate**
+3. **Noodu → Settings**, isi Base URL dan API key, lalu simpan
 
-## Installation
+Aktivasi otomatis membuat dua tabel dan folder
+`wp-content/uploads/noodu-slides/`. Tidak ada langkah manual lain.
 
-### Method 1: Direct Upload (Easiest)
+> Zip harus punya folder `noodu-slide-generator/` di akarnya. Kalau ada
+> folder pembungkus tambahan, WordPress menolak dengan pesan
+> *"No valid plugins were found."*
 
-1. Download the plugin folder
-2. Upload to `/wp-content/plugins/`
-3. Activate the plugin from WordPress Admin > Plugins
-4. Go to Noodu > Settings to configure API
+## Pakai
 
-### Method 2: Manual Setup
+**Lewat admin** — Noodu → Dashboard. Isi nama project, tekan *Fetch
+available models*, pilih model, tulis prompt, lalu Generate. Hasilnya
+muncul di Noodu → Projects.
 
-```bash
-# 1. Clone or download the plugin
-cd /path/to/wordpress/wp-content/plugins/
-# Copy noodu-slide-generator folder here
-
-# 2. Activate in WordPress admin
-# Plugins > Noodu Slide Generator > Activate
-
-# 3. Configure settings
-# Noodu > Settings (in WordPress admin)
-```
-
-## Configuration
-
-1. **Get OpenAI API Key**
-   - Visit https://platform.openai.com/api-keys
-   - Create a new API key
-
-2. **Configure in WordPress**
-   - Go to Noodu > Settings in WordPress admin
-   - Enter API Base URL: `https://api.openai.com/v1`
-   - Paste your API key
-   - Select your default model
-   - Save
-
-3. **System Requirements**
-   - poppler-utils: `sudo apt-get install poppler-utils`
-   - Chromium (for PDF generation)
-   - PHP 7.4+
-
-## Usage
-
-### Admin Dashboard
-
-1. Go to **Noodu > Dashboard**
-2. Enter Project Name
-3. Click **Fetch Models** to get available models
-4. Select a model
-5. Write your prompt describing the slides
-6. Click **Generate Slides**
-7. View and download from **Noodu > Projects**
-
-### Using Shortcode
-
-Add to any page or post:
+**Lewat halaman** — taruh shortcode di page atau post mana pun:
 
 ```
 [noodu_generator]
 ```
 
-Users with `edit_posts` capability can use the generator on the frontend.
+Yang bisa memakainya: user dengan kapabilitas `edit_posts` (Author ke
+atas). Admin melihat semua project, user lain hanya miliknya sendiri.
 
-### REST API
+## Output
 
-**Fetch Models**
-```
-GET /wp-json/noodu/v1/models
-Headers: X-WP-Nonce: <nonce>
-```
+Plugin selalu menulis deck HTML. Kalau server punya Chromium dan `exec()`
+aktif, deck itu langsung dirender jadi PDF 960 × 540 pt (16:9).
 
-**Generate Slides**
-```
-POST /wp-json/noodu/v1/generate
-Headers: X-WP-Nonce: <nonce>
-Body: {
-    "project_name": "Module Name",
-    "model": "gpt-4",
-    "prompt": "Create slides about..."
-}
-```
+Kalau tidak — dan ini normal di shared hosting — yang diunduh adalah HTML.
+Buka di browser, **Print → Save as PDF**, ukuran kertas **13.333 × 7.5
+inci**, margin nol, background graphics aktif. Hasilnya identik.
 
-**List Projects**
-```
-GET /wp-json/noodu/v1/projects
-Headers: X-WP-Nonce: <nonce>
-```
+Noodu → Settings menunjukkan mana yang tersedia di server Anda.
 
-**Get Project**
-```
-GET /wp-json/noodu/v1/projects/{id}
-Headers: X-WP-Nonce: <nonce>
-```
+## Referensi PDF
 
-**Delete Project**
-```
-DELETE /wp-json/noodu/v1/projects/{id}
-Headers: X-WP-Nonce: <nonce>
-```
+Upload PDF di form generate, teksnya diekstrak dengan `pdftotext` dan
+ikut dikirim ke model sebagai bahan. Butuh `poppler-utils`:
 
-**Download PDF**
-```
-GET /wp-json/noodu/v1/download/{id}
-Headers: X-WP-Nonce: <nonce>
-```
-
-## Database
-
-The plugin creates two tables:
-
-**wp_noodu_projects**
-- `id` - Project ID
-- `user_id` - WordPress user ID
-- `name` - Project name
-- `code` - Unique project code
-- `prompt` - Original prompt
-- `model` - AI model used
-- `status` - generating/completed/error
-- `pdf_file` - Generated PDF filename
-- `slide_count` - Number of slides
-- `slides_data` - JSON slide data
-- `created_at` - Creation timestamp
-- `updated_at` - Last update timestamp
-
-**wp_noodu_revisions**
-- `id` - Revision ID
-- `project_id` - Associated project
-- `prompt` - Revision prompt
-- `status` - pending/completed
-- `created_at` - Creation timestamp
-
-## File Storage
-
-Generated files are stored in:
-```
-/wp-content/uploads/noodu-slides/
-```
-
-## Troubleshooting
-
-### PDF Generation Fails
-
-1. Install Chromium:
-   ```bash
-   sudo apt-get install chromium-browser
-   ```
-
-2. Check permissions:
-   ```bash
-   chmod 755 /wp-content/uploads/noodu-slides/
-   ```
-
-### API Errors
-
-1. Verify API key is valid
-2. Check Base URL format (include `/v1`)
-3. Test connection in Settings page
-4. Check API rate limits
-
-### Text Extraction Issues
-
-Install poppler-utils:
 ```bash
 sudo apt-get install poppler-utils
 ```
 
-### Permissions
+Tanpa itu, salin saja isinya ke dalam prompt.
 
-- Admins can access all features from Dashboard
-- Authors/Editors can use shortcode on pages/posts
-- Subscribers cannot use the generator
+## REST API
 
-## Security
+Semua endpoint di bawah `/wp-json/noodu/v1/` dan butuh header
+`X-WP-Nonce` serta cookie login.
 
-- API keys are stored securely in WordPress options
-- REST API requires WordPress nonce
-- Only authenticated users can access
-- File uploads validated by type and size
-- SQL injection protection via wpdb
+| Method | Endpoint | Guna |
+| --- | --- | --- |
+| GET | `/models` | daftar model dari endpoint yang dikonfigurasi |
+| POST | `/generate` | buat deck baru (`project_name`, `model`, `prompt`, `reference_file`) |
+| GET | `/projects` | daftar project |
+| GET | `/projects/{id}` | detail project beserta revisinya |
+| DELETE | `/projects/{id}` | hapus project dan filenya |
+| POST | `/projects/{id}/revise` | revisi deck (`revision_prompt`) |
 
-## Support
+## Struktur
 
-For issues:
-1. Check plugin documentation
-2. Verify system requirements
-3. Enable WordPress debug mode:
-   ```php
-   define('WP_DEBUG', true);
-   define('WP_DEBUG_LOG', true);
-   ```
-4. Check error logs in `/wp-content/debug.log`
+```
+noodu-slide-generator/
+  noodu-slide-generator.php   header plugin + bootstrap
+  uninstall.php               bersih-bersih saat plugin dihapus
+  includes/
+    class-noodu-plugin.php    menu, settings, REST
+    class-database.php        akses tabel
+    class-openai-client.php   panggilan API + parsing JSON
+    class-file-uploader.php   upload dan ekstraksi PDF
+    class-pdf-generator.php   HTML deck → PDF
+  admin/                      dashboard, projects, settings
+  public/shortcode.php        form frontend
+  assets/                     CSS dan JS
+```
 
-## License
+## Tabel
 
-GPL v2 or later
+`wp_noodu_projects` menyimpan nama, kode, prompt, model, status, nama
+file, jumlah slide, dan JSON slide. `wp_noodu_revisions` menyimpan tiap
+permintaan revisi. Keduanya dihapus saat plugin di-delete lewat
+`uninstall.php` — deaktivasi tidak menghapus apa pun.
 
-## Changelog
+## Kalau bermasalah
 
-### v1.0.0
-- Initial release
-- OpenAI API integration
-- PDF generation
-- REST API endpoints
-- WordPress dashboard
-- Shortcode support
+**"No valid plugins were found"** — struktur zip salah, lihat catatan di
+bagian Pasang.
 
-## Credits
+**Fetch models gagal** — cek Base URL memuat `/v1` dan API key valid.
+Pesan error dari server ditampilkan apa adanya di layar.
 
-Built for Noodu Academy by Claude AI
+**Model tidak mengembalikan JSON valid** — coba model lain, atau buat
+prompt lebih spesifik soal jumlah dan isi slide.
+
+**Yang terunduh HTML, bukan PDF** — server tidak punya Chromium. Print ke
+PDF dari browser seperti di bagian Output.
+
+## Lisensi
+
+GPL v2 atau setelahnya.

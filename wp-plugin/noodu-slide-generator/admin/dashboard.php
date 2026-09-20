@@ -2,153 +2,92 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+$configured    = get_option( 'noodu_openai_base_url' ) && get_option( 'noodu_openai_api_key' );
+$default_model = get_option( 'noodu_default_model' );
+$project_count = count( Noodu_Database::get_projects( current_user_can( 'manage_options' ) ? null : get_current_user_id() ) );
 ?>
-<div class="wrap noodu-dashboard">
-    <h1><?php _e( 'Noodu Slide Generator', 'noodu-slide-generator' ); ?></h1>
+<div class="wrap noodu-wrap">
+    <h1><?php esc_html_e( 'Noodu Slide Generator', 'noodu-slide-generator' ); ?></h1>
+
+    <?php if ( ! $configured ) : ?>
+        <div class="notice notice-warning">
+            <p>
+                <?php esc_html_e( 'The API is not configured yet.', 'noodu-slide-generator' ); ?>
+                <a href="<?php echo esc_url( admin_url( 'admin.php?page=noodu-settings' ) ); ?>"><?php esc_html_e( 'Open Settings', 'noodu-slide-generator' ); ?></a>
+            </p>
+        </div>
+    <?php endif; ?>
+
+    <div id="noodu-notice" class="notice" style="display:none;"><p></p></div>
 
     <div class="noodu-container">
-        <div class="noodu-main">
-            <div class="noodu-card">
-                <h2><?php _e( 'Generate New Slides', 'noodu-slide-generator' ); ?></h2>
+        <div class="noodu-card">
+            <h2><?php esc_html_e( 'Generate a new deck', 'noodu-slide-generator' ); ?></h2>
 
-                <div class="noodu-form-group">
-                    <label><?php _e( 'Project Name', 'noodu-slide-generator' ); ?></label>
-                    <input type="text" id="projectName" placeholder="<?php _e( 'e.g., Module 3 - Run Your Project', 'noodu-slide-generator' ); ?>" />
-                </div>
-
-                <div class="noodu-form-group">
-                    <label><?php _e( 'Model', 'noodu-slide-generator' ); ?></label>
-                    <select id="modelSelect">
-                        <option value=""><?php _e( 'Select a model...', 'noodu-slide-generator' ); ?></option>
-                    </select>
-                    <button class="button" onclick="fetchModels()"><?php _e( 'Fetch Models', 'noodu-slide-generator' ); ?></button>
-                </div>
-
-                <div class="noodu-form-group">
-                    <label><?php _e( 'Prompt', 'noodu-slide-generator' ); ?></label>
-                    <textarea id="promptInput" placeholder="<?php _e( 'Describe what slides you want to generate...', 'noodu-slide-generator' ); ?>" rows="6"></textarea>
-                </div>
-
-                <div class="noodu-form-group">
-                    <label><?php _e( 'Reference File (Optional)', 'noodu-slide-generator' ); ?></label>
-                    <input type="file" id="referenceFile" accept=".pdf,.png,.jpg,.jpeg" />
-                </div>
-
-                <button class="button button-primary button-large" onclick="generateSlides()"><?php _e( 'Generate Slides', 'noodu-slide-generator' ); ?></button>
+            <div class="noodu-form-group">
+                <label for="noodu-project-name"><?php esc_html_e( 'Project name', 'noodu-slide-generator' ); ?></label>
+                <input type="text" id="noodu-project-name" placeholder="<?php esc_attr_e( 'Modul 3 — Run Your Project', 'noodu-slide-generator' ); ?>" />
             </div>
+
+            <div class="noodu-form-group">
+                <label for="noodu-model"><?php esc_html_e( 'Model', 'noodu-slide-generator' ); ?></label>
+                <select id="noodu-model">
+                    <?php if ( $default_model ) : ?>
+                        <option value="<?php echo esc_attr( $default_model ); ?>"><?php echo esc_html( $default_model ); ?></option>
+                    <?php else : ?>
+                        <option value=""><?php esc_html_e( 'Select a model…', 'noodu-slide-generator' ); ?></option>
+                    <?php endif; ?>
+                </select>
+                <button type="button" class="button" id="noodu-fetch-models"><?php esc_html_e( 'Fetch available models', 'noodu-slide-generator' ); ?></button>
+            </div>
+
+            <div class="noodu-form-group">
+                <label for="noodu-prompt"><?php esc_html_e( 'Prompt', 'noodu-slide-generator' ); ?></label>
+                <textarea id="noodu-prompt" rows="8" placeholder="<?php esc_attr_e( 'Buat 15 slide tentang menjalankan project Node.js di VPS, untuk peserta pemula total…', 'noodu-slide-generator' ); ?>"></textarea>
+            </div>
+
+            <div class="noodu-form-group">
+                <label for="noodu-reference"><?php esc_html_e( 'Reference file (optional)', 'noodu-slide-generator' ); ?></label>
+                <input type="file" id="noodu-reference" accept=".pdf,.png,.jpg,.jpeg" />
+                <p class="description"><?php esc_html_e( 'Text is extracted from a PDF and passed to the model as reference material.', 'noodu-slide-generator' ); ?></p>
+            </div>
+
+            <button type="button" class="button button-primary button-hero" id="noodu-generate"><?php esc_html_e( 'Generate slides', 'noodu-slide-generator' ); ?></button>
+
+            <div id="noodu-result" class="noodu-result" style="display:none;"></div>
         </div>
 
-        <div class="noodu-sidebar">
+        <div class="noodu-side">
             <div class="noodu-card">
-                <h3><?php _e( 'Quick Stats', 'noodu-slide-generator' ); ?></h3>
-                <p><strong><?php _e( 'Total Projects:', 'noodu-slide-generator' ); ?></strong> <span id="totalProjects">0</span></p>
-                <p><strong><?php _e( 'API Status:', 'noodu-slide-generator' ); ?></strong> <span id="apiStatus">Unconfigured</span></p>
+                <h3><?php esc_html_e( 'Status', 'noodu-slide-generator' ); ?></h3>
+                <p>
+                    <strong><?php esc_html_e( 'Projects:', 'noodu-slide-generator' ); ?></strong>
+                    <?php echo (int) $project_count; ?>
+                </p>
+                <p>
+                    <strong><?php esc_html_e( 'API:', 'noodu-slide-generator' ); ?></strong>
+                    <?php if ( $configured ) : ?>
+                        <span class="noodu-ok"><?php esc_html_e( 'Configured', 'noodu-slide-generator' ); ?></span>
+                    <?php else : ?>
+                        <span class="noodu-bad"><?php esc_html_e( 'Not configured', 'noodu-slide-generator' ); ?></span>
+                    <?php endif; ?>
+                </p>
+                <p>
+                    <strong><?php esc_html_e( 'PDF rendering:', 'noodu-slide-generator' ); ?></strong>
+                    <?php if ( Noodu_Plugin::check_browser() ) : ?>
+                        <span class="noodu-ok"><?php esc_html_e( 'Available', 'noodu-slide-generator' ); ?></span>
+                    <?php else : ?>
+                        <span class="noodu-bad"><?php esc_html_e( 'HTML only', 'noodu-slide-generator' ); ?></span>
+                    <?php endif; ?>
+                </p>
             </div>
 
             <div class="noodu-card">
-                <h3><?php _e( 'Documentation', 'noodu-slide-generator' ); ?></h3>
-                <p><?php _e( 'Configure OpenAI API settings in', 'noodu-slide-generator' ); ?> <a href="admin.php?page=noodu-settings"><?php _e( 'Settings', 'noodu-slide-generator' ); ?></a></p>
+                <h3><?php esc_html_e( 'Shortcode', 'noodu-slide-generator' ); ?></h3>
+                <p><?php esc_html_e( 'Put the generator on any page or post:', 'noodu-slide-generator' ); ?></p>
+                <code>[noodu_generator]</code>
             </div>
         </div>
     </div>
 </div>
-
-<style>
-.noodu-dashboard { padding: 20px; }
-.noodu-container { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
-.noodu-card { background: white; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
-.noodu-form-group { margin-bottom: 15px; }
-.noodu-form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
-.noodu-form-group input[type="text"],
-.noodu-form-group input[type="file"],
-.noodu-form-group select,
-.noodu-form-group textarea {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-}
-.noodu-form-group textarea { resize: vertical; }
-@media (max-width: 768px) {
-    .noodu-container { grid-template-columns: 1fr; }
-}
-</style>
-
-<script>
-function fetchModels() {
-    const baseUrl = '<?php echo esc_js( get_option( 'noodu_openai_base_url' ) ); ?>';
-    const apiKey = '<?php echo esc_js( get_option( 'noodu_openai_api_key' ) ); ?>';
-
-    if ( !baseUrl || !apiKey ) {
-        alert( '<?php _e( 'Please configure API settings first', 'noodu-slide-generator' ); ?>' );
-        return;
-    }
-
-    fetch( '<?php echo esc_url( rest_url( 'noodu/v1/models' ) ); ?>', {
-        method: 'GET',
-        headers: {
-            'X-WP-Nonce': '<?php echo wp_create_nonce( 'wp_rest' ); ?>'
-        }
-    } )
-    .then( r => r.json() )
-    .then( data => {
-        if ( data.success ) {
-            const select = document.getElementById( 'modelSelect' );
-            select.innerHTML = '<option value=""><?php _e( 'Select a model...', 'noodu-slide-generator' ); ?></option>';
-            data.models.forEach( model => {
-                const option = document.createElement( 'option' );
-                option.value = model.id;
-                option.textContent = model.id;
-                select.appendChild( option );
-            } );
-            alert( data.models.length + ' <?php _e( 'models found', 'noodu-slide-generator' ); ?>' );
-        } else {
-            alert( 'Error: ' + data.message );
-        }
-    } )
-    .catch( err => alert( 'Error: ' + err.message ) );
-}
-
-function generateSlides() {
-    const projectName = document.getElementById( 'projectName' ).value;
-    const model = document.getElementById( 'modelSelect' ).value;
-    const prompt = document.getElementById( 'promptInput' ).value;
-
-    if ( !projectName || !model || !prompt ) {
-        alert( '<?php _e( 'Please fill all required fields', 'noodu-slide-generator' ); ?>' );
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append( 'project_name', projectName );
-    formData.append( 'model', model );
-    formData.append( 'prompt', prompt );
-
-    const btn = event.target;
-    btn.disabled = true;
-    btn.textContent = '<?php _e( 'Generating...', 'noodu-slide-generator' ); ?>';
-
-    fetch( '<?php echo esc_url( rest_url( 'noodu/v1/generate' ) ); ?>', {
-        method: 'POST',
-        headers: {
-            'X-WP-Nonce': '<?php echo wp_create_nonce( 'wp_rest' ); ?>'
-        },
-        body: formData
-    } )
-    .then( r => r.json() )
-    .then( data => {
-        if ( data.success ) {
-            alert( '<?php _e( 'Slides generated successfully!', 'noodu-slide-generator' ); ?>' );
-            window.location.href = 'admin.php?page=noodu-projects';
-        } else {
-            alert( 'Error: ' + data.message );
-        }
-    } )
-    .catch( err => alert( 'Error: ' + err.message ) )
-    .finally( () => {
-        btn.disabled = false;
-        btn.textContent = '<?php _e( 'Generate Slides', 'noodu-slide-generator' ); ?>';
-    } );
-}
-</script>

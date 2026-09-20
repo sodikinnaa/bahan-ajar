@@ -1,234 +1,232 @@
-/* Noodu Public Styles */
+.noodu-app {
+	--noodu-blue: #3366ff;
+	--noodu-ink: #0d203f;
+	--noodu-muted: #8a93a5;
+	--noodu-line: #e3e6ec;
 
-.noodu-shortcode-wrapper {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 30px;
-    background: linear-gradient(135deg, #f9f9f6 0%, #fafaf6 100%);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e3e6ec;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	max-width: 720px;
+	margin: 32px auto;
+	padding: 28px;
+	background: #fff;
+	border: 1px solid var(--noodu-line);
+	border-radius: 14px;
+	color: var(--noodu-ink);
+	box-sizing: border-box;
 }
 
-.noodu-generator-form {
-    padding: 10px;
+.noodu-app *,
+.noodu-app *::before,
+.noodu-app *::after {
+	box-sizing: inherit;
 }
 
-.noodu-generator-form h2 {
-    margin: 0 0 30px;
-    font-size: 28px;
-    font-weight: 700;
-    color: #0d203f;
-    letter-spacing: -0.5px;
+.noodu-app__title {
+	margin: 0 0 22px;
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
 }
 
-.noodu-form-group {
-    margin-bottom: 24px;
+.noodu-field {
+	margin-bottom: 20px;
 }
 
-.noodu-form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #0d203f;
-    font-size: 14px;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
+.noodu-field label {
+	display: block;
+	margin-bottom: 7px;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--noodu-muted);
 }
 
-.noodu-form-group input[type="text"],
-.noodu-form-group input[type="file"],
-.noodu-form-group select,
-.noodu-form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #e3e6ec;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 15px;
-    background: white;
-    box-sizing: border-box;
-    transition: all 0.2s ease;
+.noodu-field input[type="text"],
+.noodu-field input[type="file"],
+.noodu-field select,
+.noodu-field textarea {
+	width: 100%;
+	padding: 11px 14px;
+	border: 1px solid var(--noodu-line);
+	border-radius: 9px;
+	font: inherit;
+	font-size: 15px;
+	color: var(--noodu-ink);
+	background: #fff;
 }
 
-.noodu-form-group input:focus,
-.noodu-form-group select:focus,
-.noodu-form-group textarea:focus {
-    outline: none;
-    border-color: #3366ff;
-    box-shadow: 0 0 0 4px rgba(51, 102, 255, 0.1);
+.noodu-field textarea {
+	resize: vertical;
+	min-height: 120px;
 }
 
-.noodu-form-group textarea {
-    resize: vertical;
-    min-height: 100px;
+.noodu-field input:focus,
+.noodu-field select:focus,
+.noodu-field textarea:focus {
+	outline: none;
+	border-color: var(--noodu-blue);
+	box-shadow: 0 0 0 3px rgba( 51, 102, 255, 0.12 );
 }
 
-.noodu-fetch-models {
-    display: block;
-    margin-top: 12px;
-    background: #f0f4ff;
-    color: #3366ff;
-    border: 1px solid #d9e2ff;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+.noodu-btn {
+	display: inline-block;
+	padding: 11px 20px;
+	border: 1px solid transparent;
+	border-radius: 9px;
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.noodu-fetch-models:hover {
-    background: #3366ff;
-    color: white;
-    border-color: #3366ff;
+.noodu-btn:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
 }
 
-.noodu-generate-btn {
-    width: 100%;
-    padding: 14px 24px;
-    background: #3366ff;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 24px;
+.noodu-btn--primary {
+	width: 100%;
+	background: var(--noodu-blue);
+	color: #fff;
+	font-size: 16px;
+	padding: 14px 20px;
 }
 
-.noodu-generate-btn:hover:not(:disabled) {
-    background: #254dd6;
-    box-shadow: 0 6px 20px rgba(51, 102, 255, 0.3);
-    transform: translateY(-2px);
+.noodu-btn--primary:hover:not(:disabled) {
+	background: #254dd6;
 }
 
-.noodu-generate-btn:disabled {
-    background: #d9dde5;
-    cursor: not-allowed;
-    opacity: 0.7;
+.noodu-btn--ghost {
+	margin-top: 9px;
+	background: #f0f4ff;
+	color: var(--noodu-blue);
+	border-color: #d9e2ff;
+	font-size: 14px;
 }
 
-.noodu-projects-list {
-    margin-top: 40px;
-    padding-top: 40px;
-    border-top: 2px solid #e3e6ec;
+.noodu-btn--ghost:hover:not(:disabled) {
+	background: var(--noodu-blue);
+	color: #fff;
 }
 
-.noodu-projects-list h2 {
-    margin: 0 0 24px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #0d203f;
+.noodu-notice {
+	margin-bottom: 20px;
+	padding: 13px 16px;
+	border-radius: 9px;
+	font-size: 14px;
+	line-height: 1.45;
 }
 
-.noodu-projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
+.noodu-notice--success {
+	background: #e2f4eb;
+	color: #14724c;
 }
 
-.noodu-project-card {
-    background: white;
-    border: 1px solid #e3e6ec;
-    border-radius: 12px;
-    padding: 18px;
-    transition: all 0.2s ease;
-}
-
-.noodu-project-card:hover {
-    border-color: #3366ff;
-    box-shadow: 0 8px 24px rgba(51, 102, 255, 0.12);
-}
-
-.noodu-project-name {
-    font-size: 16px;
-    font-weight: 700;
-    color: #0d203f;
-    margin-bottom: 10px;
-    word-break: break-word;
-}
-
-.noodu-project-meta {
-    font-size: 13px;
-    color: #8a93a5;
-    margin-bottom: 14px;
-    line-height: 1.5;
-}
-
-.noodu-project-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.noodu-project-actions a,
-.noodu-project-actions button {
-    flex: 1;
-    padding: 8px 10px;
-    text-align: center;
-    text-decoration: none;
-    background: #f0f4ff;
-    color: #3366ff;
-    border: 1px solid #d9e2ff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 600;
-    transition: all 0.2s;
-}
-
-.noodu-project-actions a:hover,
-.noodu-project-actions button:hover {
-    background: #3366ff;
-    color: white;
-    border-color: #3366ff;
+.noodu-notice--error {
+	background: #fdecea;
+	color: #a93226;
 }
 
 .noodu-loading {
-    padding: 60px 20px;
-    text-align: center;
-    color: #0d203f;
+	margin-top: 22px;
+	text-align: center;
+	color: var(--noodu-muted);
 }
 
 .noodu-loading p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 500;
+	margin: 12px 0 0;
+	font-size: 14px;
 }
 
-.spinner {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border: 4px solid #e3e6ec;
-    border-top-color: #3366ff;
-    border-radius: 50%;
-    animation: noodu-spin 1s linear infinite;
+.noodu-spinner {
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	border: 3px solid var(--noodu-line);
+	border-top-color: var(--noodu-blue);
+	border-radius: 50%;
+	animation: noodu-spin 0.9s linear infinite;
 }
 
 @keyframes noodu-spin {
-    to { transform: rotate(360deg); }
+	to { transform: rotate( 360deg ); }
 }
 
-@media (max-width: 600px) {
-    .noodu-shortcode-wrapper {
-        margin: 20px 10px;
-        padding: 20px;
-    }
+@media ( prefers-reduced-motion: reduce ) {
+	.noodu-spinner { animation-duration: 3s; }
+}
 
-    .noodu-generator-form h2 {
-        font-size: 24px;
-    }
+.noodu-projects {
+	margin-top: 34px;
+	padding-top: 26px;
+	border-top: 1px solid var(--noodu-line);
+}
 
-    .noodu-projects-grid {
-        grid-template-columns: 1fr;
-    }
+.noodu-projects h3 {
+	margin: 0 0 18px;
+	font-size: 19px;
+	font-weight: 700;
+}
 
-    .noodu-form-group input,
-    .noodu-form-group select,
-    .noodu-form-group textarea {
-        font-size: 16px;
-    }
+.noodu-projects__grid {
+	display: grid;
+	grid-template-columns: repeat( auto-fill, minmax( 220px, 1fr ) );
+	gap: 14px;
+}
+
+.noodu-project {
+	padding: 16px;
+	border: 1px solid var(--noodu-line);
+	border-radius: 10px;
+}
+
+.noodu-project__name {
+	font-size: 15px;
+	font-weight: 700;
+	margin-bottom: 6px;
+	overflow-wrap: anywhere;
+}
+
+.noodu-project__meta {
+	font-size: 13px;
+	color: var(--noodu-muted);
+	margin-bottom: 14px;
+}
+
+.noodu-project__actions {
+	display: flex;
+	gap: 8px;
+}
+
+.noodu-project__actions a,
+.noodu-project__actions button {
+	flex: 1;
+	padding: 7px 10px;
+	border: 1px solid #d9e2ff;
+	border-radius: 6px;
+	background: #f0f4ff;
+	color: var(--noodu-blue);
+	font: inherit;
+	font-size: 12px;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.noodu-project__actions a:hover,
+.noodu-project__actions button:hover:not(:disabled) {
+	background: var(--noodu-blue);
+	color: #fff;
+}
+
+@media ( max-width: 600px ) {
+	.noodu-app {
+		margin: 16px 12px;
+		padding: 20px;
+	}
+
+	.noodu-projects__grid {
+		grid-template-columns: 1fr;
+	}
 }
