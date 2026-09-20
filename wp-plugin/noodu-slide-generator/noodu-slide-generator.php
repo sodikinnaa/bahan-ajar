@@ -3,7 +3,7 @@
  * Plugin Name: Noodu Slide Generator
  * Plugin URI: https://noodu.academy
  * Description: AI-powered educational slide generator integrated with OpenAI API
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Noodu Academy
  * Author URI: https://noodu.academy
  * License: GPL v2 or later
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'NOODU_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'NOODU_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'NOODU_PLUGIN_VERSION', '1.0.0' );
+define( 'NOODU_PLUGIN_VERSION', '1.1.0' );
 
 // Include required files
 require_once NOODU_PLUGIN_DIR . 'includes/class-noodu-plugin.php';
