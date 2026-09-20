@@ -1,0 +1,152 @@
+/* Noodu Admin Styles */
+
+.noodu-dashboard,
+.noodu-projects,
+.noodu-settings {
+    padding: 20px;
+}
+
+.noodu-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.noodu-main {
+    flex: 1;
+}
+
+.noodu-sidebar {
+    flex: 0 0 300px;
+}
+
+.noodu-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.noodu-card h2,
+.noodu-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #0d203f;
+}
+
+.noodu-form-group {
+    margin-bottom: 20px;
+}
+
+.noodu-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #0d203f;
+}
+
+.noodu-form-group input[type="text"],
+.noodu-form-group input[type="password"],
+.noodu-form-group input[type="url"],
+.noodu-form-group input[type="file"],
+.noodu-form-group select,
+.noodu-form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.noodu-form-group input:focus,
+.noodu-form-group select:focus,
+.noodu-form-group textarea:focus {
+    outline: none;
+    border-color: #3366ff;
+    box-shadow: 0 0 0 3px rgba(51, 102, 255, 0.1);
+}
+
+.noodu-form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.noodu-form-group button {
+    margin-top: 10px;
+}
+
+.button-primary {
+    background-color: #3366ff;
+    border-color: #3366ff;
+    color: white;
+}
+
+.button-primary:hover {
+    background-color: #254dd6;
+    border-color: #254dd6;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color: #e2f4eb;
+    color: #1f9a68;
+}
+
+.badge-processing {
+    background-color: #fff0e5;
+    color: #c2571a;
+}
+
+.wp-list-table {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.wp-list-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    padding: 12px;
+    border-bottom: 2px solid #ddd;
+}
+
+.wp-list-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.wp-list-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .noodu-container {
+        grid-template-columns: 1fr;
+    }
+
+    .noodu-sidebar {
+        flex: 1;
+    }
+
+    .wp-list-table {
+        font-size: 12px;
+    }
+
+    .wp-list-table th,
+    .wp-list-table td {
+        padding: 8px;
+    }
+}
