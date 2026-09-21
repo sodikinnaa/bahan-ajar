@@ -1,0 +1,26 @@
+/* Palet Noodu Academy */
+
+:root {
+  /* template slide */
+  --ink: #0d203f;
+  --ink-soft: #33507a;
+  --muted: #8a93a5;
+  --paper: #fafaf6;
+  --line: #d9dde5;
+  --blue: #3366ff;
+  --orange: #f2722b;
+  --green: #49c08b;
+  --tint-blue: #edf2ff;
+  --tint-green: #e2f4eb;
+  --tint-orange: #fff0e5;
+  --card-dark: #203956;
+  --cover-card: #eaf0ff;
+  --cover-circle: #dae4ff;
+  --cover-blob: #ffd7be;
+
+  /* maskot NOO, disampel dari aset */
+  --noo-biru: #1d64d8;
+  --noo-oranye: #fa882b;
+  --noo-krem: #f4e9db;
+  --noo-gelap: #18325e;
+}

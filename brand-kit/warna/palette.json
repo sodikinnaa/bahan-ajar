@@ -1,0 +1,82 @@
+{
+  "template": {
+    "ink": {
+      "hex": "#0d203f",
+      "pakai": "teks utama, slide gelap, blok kode"
+    },
+    "ink-soft": {
+      "hex": "#33507a",
+      "pakai": "teks sekunder, meta di topbar"
+    },
+    "muted": {
+      "hex": "#8a93a5",
+      "pakai": "keterangan kecil"
+    },
+    "paper": {
+      "hex": "#fafaf6",
+      "pakai": "latar slide"
+    },
+    "line": {
+      "hex": "#d9dde5",
+      "pakai": "garis pemisah dan border tabel"
+    },
+    "blue": {
+      "hex": "#3366ff",
+      "pakai": "aksen utama, rel kiri, progress bar"
+    },
+    "orange": {
+      "hex": "#f2722b",
+      "pakai": "garis aksen di sampul"
+    },
+    "green": {
+      "hex": "#49c08b",
+      "pakai": "lingkaran nomor modul"
+    },
+    "tint-blue": {
+      "hex": "#edf2ff",
+      "pakai": "latar callout biru dan NOO bilang"
+    },
+    "tint-green": {
+      "hex": "#e2f4eb",
+      "pakai": "latar callout hijau dan token inline"
+    },
+    "tint-orange": {
+      "hex": "#fff0e5",
+      "pakai": "latar callout oranye"
+    },
+    "card-dark": {
+      "hex": "#203956",
+      "pakai": "blok kode di atas slide gelap"
+    },
+    "cover-card": {
+      "hex": "#eaf0ff",
+      "pakai": "latar kartu sampul"
+    },
+    "cover-circle": {
+      "hex": "#dae4ff",
+      "pakai": "lingkaran di belakang maskot"
+    },
+    "cover-blob": {
+      "hex": "#ffd7be",
+      "pakai": "blob oranye muda di kartu sampul"
+    }
+  },
+  "maskot": {
+    "noo-biru": {
+      "hex": "#1d64d8",
+      "pakai": "badan maskot"
+    },
+    "noo-oranye": {
+      "hex": "#fa882b",
+      "pakai": "tas selempang dan panah"
+    },
+    "noo-krem": {
+      "hex": "#f4e9db",
+      "pakai": "putih mata"
+    },
+    "noo-gelap": {
+      "hex": "#18325e",
+      "pakai": "pupil dan benda yang dipegang"
+    }
+  }
+}
