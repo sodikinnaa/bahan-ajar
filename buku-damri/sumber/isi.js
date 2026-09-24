@@ -175,9 +175,10 @@ const BAB_ORGANISASI = {
   pembuka: 'Dari kantor pusat di Jakarta hingga cabang di daerah, DAMRI bekerja sebagai satu organisasi.',
   sub: [
     {
-      judul: 'Struktur Organisasi',
+      judul: 'Struktur Organisasi Kantor Pusat',
       isi: [
-        'Menurut Peraturan Pemerintah Nomor 38 Tahun 2018, organ Perum DAMRI terdiri atas **Menteri**, **Dewan Pengawas**, dan **Direksi**. Dewan Pengawas bertugas mengawasi dan memberi nasihat kepada Direksi, sedangkan Direksi bertanggung jawab atas pengurusan perusahaan sehari-hari.',
+        'Menurut Peraturan Pemerintah Nomor 38 Tahun 2018, organ Perum DAMRI terdiri atas **Menteri**, **Dewan Pengawas**, dan **Direksi**. Dewan Pengawas bertugas mengawasi dan memberi nasihat kepada Direksi, dengan dukungan Komite Audit dan Sekretaris Dewan Pengawas. Direksi bertanggung jawab atas pengurusan perusahaan sehari-hari.',
+        { bagan: 'pusat', keterangan: 'Gambar 4.1 Struktur organisasi kantor pusat Perum DAMRI tingkat Direksi' },
         'Direksi Perum DAMRI terdiri atas jabatan-jabatan berikut:',
         { tabel: {
           kolom: ['Jabatan', 'Lingkup tugas utama'],
@@ -190,19 +191,47 @@ const BAB_ORGANISASI = {
             ['Direktur SDM dan Umum', 'Pengelolaan dan pengembangan karyawan serta urusan umum.'],
           ],
         } },
-        'Direksi didukung oleh unit-unit di kantor pusat, antara lain Sekretariat Perusahaan dan Satuan Pengawas Internal.',
+        'Di bawah Direksi terdapat unit-unit kerja setingkat divisi. Pimpinannya kini disebut _Vice President_ (VP), sebelumnya Kepala Divisi. Unit-unit tersebut antara lain:',
+        { daftar: [
+          'Sekretariat Perusahaan (_Corporate Secretary_) dan Satuan Pengawas Internal, yang berada langsung di bawah Direktur Utama.',
+          'Komersial dan Pemasaran, Pengembangan Bisnis, serta Strategi Korporasi.',
+          'Operasional dan Keselamatan, Kualitas dan Fasilitas Pelayanan, serta Pengadaan.',
+          'Human Capital, _General Service_, dan Teknologi Informasi.',
+        ] },
+        'Susunan dan nama unit kerja ditetapkan melalui keputusan Direksi. Perubahan nomenklatur struktur organisasi yang terakhir ditetapkan pada 1 November 2023.',
+        { lengkapi: 'Sesuaikan daftar unit dan pembagiannya per direktorat dengan keputusan Direksi tentang struktur organisasi yang berlaku.' },
       ],
     },
     {
       judul: 'Jaringan Kantor Cabang',
       isi: [
-        'Untuk menjangkau seluruh wilayah Indonesia, DAMRI memiliki **4 Divisi Regional** dan **44 kantor cabang**. Divisi Regional mengoordinasikan cabang-cabang di wilayahnya, sedangkan setiap cabang dipimpin oleh seorang General Manager yang bertanggung jawab atas operasional layanan di daerahnya.',
+        'Untuk menjangkau seluruh wilayah Indonesia, DAMRI membentuk kantor Divisi Regional dan kantor cabang. Menurut profil perusahaan, DAMRI memiliki **4 Divisi Regional** dan **44 kantor cabang**. Divisi Regional mengoordinasikan cabang-cabang di wilayahnya, sedangkan setiap cabang dipimpin oleh seorang General Manager yang bertanggung jawab atas layanan di daerahnya.',
         'Cabang merupakan ujung tombak pelayanan. Di cabanglah bus disiapkan, awak ditugaskan, tiket dijual, dan penumpang dilayani secara langsung.',
         { kotak: {
           judul: 'Tahukah Anda?',
           isi: 'Untuk musim mudik Lebaran 2026, DAMRI menyiapkan 1.800 bus di seluruh Indonesia.',
         } },
         { lengkapi: 'Lengkapi: Divisi Regional yang membawahi DAMRI Cabang Bandar Lampung.' },
+      ],
+    },
+    {
+      judul: 'Struktur Organisasi Kantor Cabang',
+      isi: [
+        'Kantor cabang dipimpin oleh seorang **General Manager (GM)**. Dalam menjalankan tugasnya, GM dibantu tiga manager yang masing-masing membawahi asisten manager dan staf. Gambaran umumnya sebagai berikut.',
+        { bagan: 'cabang', keterangan: 'Gambar 4.2 Gambaran umum struktur organisasi kantor cabang DAMRI' },
+        { tabel: {
+          kolom: ['Jabatan', 'Tugas pokok'],
+          lebar: [1.7, 2.8],
+          baris: [
+            ['General Manager', 'Memimpin cabang dan bertanggung jawab atas seluruh kegiatan usaha, operasional, dan kinerja cabang.'],
+            ['Manager Usaha', 'Pemasaran, pengembangan usaha, penyelenggaraan layanan angkutan, serta keselamatan dan mutu pelayanan.'],
+            ['Manager Keuangan, SDM dan Umum', 'Akuntansi, anggaran, perbendaharaan, perpajakan, pengelolaan SDM, organisasi, dan administrasi umum.'],
+            ['Manager Teknik', 'Perawatan dan perbaikan armada, kesiapan kendaraan, serta fasilitas bengkel.'],
+            ['Asisten Manager', 'Memimpin sub-bagian di bawah masing-masing manager.'],
+            ['Staf dan pelaksana', 'Staf administrasi, petugas loket, pengemudi dan awak bus, serta mekanik.'],
+          ],
+        } },
+        { lengkapi: 'Sesuaikan bagan dengan surat keputusan struktur organisasi DAMRI Cabang Bandar Lampung yang berlaku. Nama pejabat dapat ditambahkan bila diperlukan.' },
       ],
     },
   ],
@@ -453,7 +482,7 @@ const BAB_LAMPUNG = {
       judul: 'Profil Cabang',
       isi: [
         'DAMRI Cabang Bandar Lampung, yang dalam berbagai pemberitaan juga disebut DAMRI Cabang Lampung, adalah unit Perum DAMRI yang melayani angkutan penumpang dan barang dari dan ke Provinsi Lampung. Letak Lampung sebagai pintu masuk Pulau Sumatra membuat cabang ini berperan penting dalam menghubungkan Sumatra dan Jawa melalui penyeberangan Bakauheni–Merak.',
-        'Cabang ini dipimpin oleh seorang General Manager dan didukung bagian-bagian yang menangani operasional, teknik, pelayanan, keuangan, serta sumber daya manusia.',
+        'Cabang ini dipimpin oleh seorang General Manager yang dibantu Manager Usaha, Manager Keuangan, SDM dan Umum, serta Manager Teknik. Susunan organisasinya dijelaskan pada subbab 4.3.',
         { tabel: {
           kolom: ['Lokasi', 'Alamat'],
           lebar: [1.5, 3],
@@ -633,6 +662,27 @@ const PUSTAKA = [
 ];
 
 // Bagan struktur organisasi, digambar oleh bagan.js.
-const BAGAN = {};
+const BAGAN = {
+  pusat: {
+    pengawas: 'Dewan Pengawas',
+    puncak: 'Direktur Utama',
+    staf: ['Sekretariat Perusahaan', 'Satuan Pengawas Internal'],
+    kolom: [
+      { nama: 'Direktur Komersial dan Pengembangan Usaha' },
+      { nama: 'Direktur Keuangan dan Manajemen Risiko' },
+      { nama: 'Direktur Teknik dan Fasilitas' },
+      { nama: 'Direktur SDM dan Umum' },
+    ],
+    catatan: 'Garis putus-putus: fungsi pengawasan dan pemberian nasihat.',
+  },
+  cabang: {
+    puncak: 'General Manager',
+    kolom: [
+      { nama: 'Manager Usaha', anak: ['Asisten Manager Usaha', 'Staf Usaha', 'Petugas Loket', 'Pengemudi dan Awak Bus'] },
+      { nama: 'Manager Keuangan, SDM dan Umum', anak: ['Asisten Manager', 'Staf Keuangan, SDM dan Umum'] },
+      { nama: 'Manager Teknik', anak: ['Asisten Manager Teknik Perbaikan', 'Mekanik'] },
+    ],
+  },
+};
 
 module.exports = { KATA_PENGANTAR, PENANDA_TANGAN, BAB, PENUTUP, PUSTAKA, BAGAN };
