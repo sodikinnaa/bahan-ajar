@@ -68,6 +68,77 @@ const ETIKA_KERJA = {
   ],
 };
 
+const BAB_LAMPUNG = {
+  no: 'VI', judul: 'DAMRI Cabang Bandar Lampung',
+  pembuka: 'Dari gerbang Pulau Sumatra, DAMRI menghubungkan Lampung dengan Pulau Jawa, kota-kota di Sumatra, dan desa-desa di pedalaman.',
+  sub: [
+    {
+      judul: 'Profil Cabang',
+      isi: [
+        'DAMRI Cabang Bandar Lampung, yang dalam berbagai pemberitaan juga disebut DAMRI Cabang Lampung, adalah unit Perum DAMRI yang melayani angkutan penumpang dan barang dari dan ke Provinsi Lampung. Letak Lampung sebagai pintu masuk Pulau Sumatra membuat cabang ini berperan penting dalam menghubungkan Sumatra dan Jawa melalui penyeberangan Bakauheni–Merak.',
+        'Cabang ini dipimpin oleh seorang General Manager dan didukung bagian-bagian yang menangani operasional, teknik, pelayanan, keuangan, serta sumber daya manusia.',
+        { tabel: {
+          kolom: ['Lokasi', 'Alamat'],
+          lebar: [1.5, 3],
+          baris: [
+            ['Kantor dan Pool Rajabasa', 'Jl. Kapten Abdul Haq, Rajabasa, Bandar Lampung'],
+            ['Loket dan Pool Stasiun Tanjung Karang', 'Jl. Kotaraja No. 1, Gunung Sari, Enggal, Bandar Lampung'],
+          ],
+        } },
+        { lengkapi: 'Lengkapi: tahun berdiri cabang, nomor alamat kantor, dan nomor telepon resmi cabang sesuai arsip perusahaan.' },
+      ],
+    },
+    {
+      judul: 'Trayek dan Layanan di Lampung',
+      isi: [
+        'Layanan DAMRI Cabang Bandar Lampung dapat dikelompokkan sebagai berikut. Daftar trayek dan tarif dapat berubah sewaktu-waktu, sehingga informasi terbaru sebaiknya dicek melalui kanal resmi DAMRI.',
+        { tabel: {
+          kolom: ['Jenis layanan', 'Contoh tujuan'],
+          lebar: [1.4, 3.1],
+          baris: [
+            ['Antarkota antarprovinsi ke Jawa', 'Jakarta (Gambir, Tanjung Priok, Pulo Gebang, Kemayoran), Tangerang dan Serang, Sukabumi, Bandung, Tasikmalaya, dan Yogyakarta.'],
+            ['Antarkota antarprovinsi di Sumatra', 'Bengkulu.'],
+            ['Dari kabupaten ke Jakarta', 'Kotabumi, Metro, Bandar Jaya, Talang Padang, Tulang Bawang Barat, dan Kalianda.'],
+            ['Antarkota dalam provinsi', 'Tanjung Karang–Terminal Eksekutif Bakauheni melalui jalan tol.'],
+            ['Angkutan perintis', 'Trayek bersubsidi yang menghubungkan pusat kota dengan desa, misalnya di Lampung Selatan, Lampung Barat, Pringsewu, dan Tulang Bawang Barat.'],
+            ['Angkutan khusus', 'Antar-jemput jemaah haji menuju Bandara Radin Inten II dan angkutan logistik.'],
+          ],
+        } },
+        'Bus ke Pulau Jawa menyeberangi Selat Sunda dengan kapal melalui Pelabuhan Bakauheni dan Merak. Layanan tersedia dalam beberapa kelas, yaitu **Bisnis**, **Eksekutif**, dan **Royal Class**. Royal Class memakai susunan kursi 1-2 dengan 24 kursi sehingga penumpang lebih leluasa.',
+        'Trayek perintis di Lampung terus bertambah. Pada 2023 tercatat trayek seperti Bandar Jaya–Kalirejo, Kebun Tebu–Liwa, Natar–Margomulyo, Rajabasa–Kejabung, Negara Batin–Panaragan, dan Pringsewu–Sendang Agung. Pada awal 2026, trayek baru di Lampung Barat dibuka, antara lain Liwa–Lumbok Seminung yang sekaligus membuka akses wisata Danau Ranau, dengan tarif mulai Rp15.000.',
+        { kotak: {
+          judul: 'Tahukah Anda?',
+          isi: 'Pada musim haji 2025, DAMRI mengerahkan 13 bus untuk mengantar 7.120 jemaah haji Lampung menuju Bandara Radin Inten II selama 1–29 Mei 2025.',
+        } },
+      ],
+    },
+    {
+      judul: 'Sarana dan Fasilitas',
+      isi: [
+        'Pada Agustus 2024, DAMRI Cabang Bandar Lampung mengoperasikan 146 unit armada dengan rincian sebagai berikut.',
+        { tabel: {
+          kolom: ['Jenis layanan', 'Jumlah armada'],
+          lebar: [3, 1.5],
+          baris: [
+            ['Antarkota antarprovinsi (AKAP)', '86 unit'],
+            ['Antarkota dalam provinsi (AKDP)', '31 unit'],
+            ['Perintis', '26 unit'],
+            ['Logistik', '3 unit'],
+            ['**Jumlah**', '**146 unit**'],
+          ],
+        } },
+        'Pada 6 Agustus 2024, Penjabat Gubernur Lampung dan Direktur Utama Perum DAMRI meresmikan 26 bus baru kelas Eksekutif dan Royal Class, bersama ruang tunggu baru di Loket Stasiun Tanjung Karang.',
+        'Selain pool Rajabasa dan loket Stasiun Tanjung Karang, penumpang dapat naik dari beberapa titik keberangkatan lain, antara lain Terminal Rajabasa, Sukarame, dan kawasan ITERA di Bandar Lampung, serta pool atau loket di Kotabumi, Metro, Bandar Jaya, Talang Padang, dan Tulang Bawang Barat.',
+        { kotak: {
+          judul: 'Angkutan Lebaran',
+          isi: 'Setiap musim mudik Lebaran, cabang menambah kesiapan armada. Pada Lebaran 2024 disiapkan 98 bus, naik dari sekitar 90 bus pada tahun sebelumnya. Pada angkutan Lebaran 2023, DAMRI Lampung melayani 53.584 penumpang.',
+        } },
+        { lengkapi: 'Lengkapi: jumlah armada, karyawan, dan titik layanan terbaru bila ada perubahan.' },
+      ],
+    },
+  ],
+};
+
 const BAB_INSAN = {
   no: 'VIII', judul: 'Insan DAMRI',
   pembuka: 'Bus yang baik hanya bisa melayani dengan baik bila dijalankan oleh orang-orang yang kompeten dan bangga pada pekerjaannya.',
