@@ -8,6 +8,7 @@ const {
   Document, Packer, Paragraph, TextRun, ImageRun, Header, Footer, Tab, Bookmark,
   AlignmentType, PageNumber, NumberFormat, TabStopType, LeaderType, BorderStyle,
   HorizontalPositionRelativeFrom, VerticalPositionRelativeFrom, TextWrappingType, LineRuleType,
+  Table, TableRow, TableCell, WidthType, ShadingType, LevelFormat,
 } = require('docx');
 
 const AKAR = path.resolve(__dirname, '..');
@@ -17,7 +18,7 @@ const HALAMAN = path.join(__dirname, 'halaman.json');
 
 const WARNA = {
   navy: '0B3A78', kuning: 'F2A516', kuningTua: 'B45309', teks: '1F2937',
-  abu: '6B7280', garis: 'C9D3E3', biruMuda: 'BFD7F5',
+  abu: '6B7280', garis: 'C9D3E3', biruMuda: 'BFD7F5', latarKotak: 'EAF2FB', latarBaris: 'F4F7FB',
 };
 const FONT = 'Arial';
 const mm = (v) => Math.round(v * 56.6929); // milimeter ke twip
@@ -33,77 +34,8 @@ const LEBAR_ISI = A5.width - MARGIN.left - MARGIN.right;
 // LibreOffice membacanya sebagai jarak pasti dan memotong gambar.
 const spasi = (line) => ({ line, lineRule: LineRuleType.AUTO });
 
-// ---------- Isi buku ----------
-
-const KATA_PENGANTAR = [
-  'Puji syukur kami panjatkan ke hadirat Tuhan Yang Maha Esa atas rahmat dan karunia-Nya sehingga buku Pengetahuan Seputar DAMRI ini dapat tersusun dan hadir di tengah para pembaca.',
-  'Sejak 25 November 1946, DAMRI telah menjadi bagian dari perjalanan bangsa Indonesia. Berawal dari Djawatan Angkoetan Motor Republik Indonesia, kini Perum DAMRI hadir sebagai Badan Usaha Milik Negara yang melayani masyarakat di bidang transportasi jalan. Perjalanan panjang tersebut menyimpan banyak pengetahuan yang layak dikenal, baik oleh insan DAMRI maupun oleh masyarakat yang setiap hari memanfaatkan layanannya.',
-  'Buku ini disusun oleh DAMRI Cabang Bandar Lampung sebagai sumber informasi yang ringkas dan mudah dipahami. Bagi karyawan, buku ini menjadi bekal untuk mengenal perusahaan tempat mereka berkarya: sejarahnya, nilai-nilai yang dipegang, serta layanan yang diberikan. Bagi masyarakat luas, buku ini diharapkan membantu mengenal DAMRI lebih dekat, termasuk layanan yang tersedia di Provinsi Lampung.',
-  'Kami berupaya menyajikan informasi yang bersumber dari dokumen resmi perusahaan, peraturan perundang-undangan, dan sumber lain yang dapat dipertanggungjawabkan.',
-  'Terima kasih kami sampaikan kepada jajaran manajemen serta seluruh karyawan DAMRI Cabang Bandar Lampung yang telah mendukung penyusunan buku ini. Kami menyadari buku ini masih memiliki kekurangan. Oleh karena itu, kritik dan saran yang membangun sangat kami harapkan demi penyempurnaan edisi berikutnya.',
-  'Semoga buku ini bermanfaat dan menambah kebanggaan kita terhadap DAMRI sebagai transportasi milik bangsa.',
-];
-
-const PENANDA_TANGAN = {
-  tempatTanggal: 'Bandar Lampung, September 2026',
-  jabatan: 'Manager SDM',
-  unit: 'Perum DAMRI Cabang Bandar Lampung',
-  nama: '(Nama Lengkap)',
-};
-
-// Kerangka bab: [judul subbab, panduan isi untuk penulis].
-const BAB = [
-  { no: 'I', judul: 'Mengenal DAMRI', sub: [
-    ['Arti Nama DAMRI', 'Kepanjangan DAMRI dari masa ke masa dan makna di balik nama tersebut.'],
-    ['Status dan Bidang Usaha', 'Perum DAMRI sebagai Badan Usaha Milik Negara di bidang transportasi jalan.'],
-    ['Logo dan Identitas Perusahaan', 'Makna logo DAMRI dan identitas visual yang digunakan saat ini.'],
-  ] },
-  { no: 'II', judul: 'Sejarah Perjalanan DAMRI', sub: [
-    ['Masa Pendudukan Jepang', 'Dua usaha angkutan barang dan penumpang yang menjadi cikal bakal DAMRI.'],
-    ['Lahirnya DAMRI Tahun 1946', 'Maklumat Menteri Perhubungan RI No. 01/DAM/46 tanggal 25 November 1946.'],
-    ['Menjadi Perusahaan Umum', 'Perum DAMRI berdasarkan PP No. 30 Tahun 1982 dan PP No. 31 Tahun 1984.'],
-    ['DAMRI di Era Modern', 'PP No. 38 Tahun 2018, pembaruan logo, dan penggabungan Perum PPD pada 2023.'],
-  ] },
-  { no: 'III', judul: 'Visi, Misi, dan Budaya Perusahaan', sub: [
-    ['Visi dan Misi', 'Visi dan misi Perum DAMRI sesuai dokumen resmi perusahaan terbaru.'],
-    ['Nilai Utama AKHLAK', 'Amanah, Kompeten, Harmonis, Loyal, Adaptif, dan Kolaboratif.'],
-    ['Etika Kerja Insan DAMRI', 'Pedoman perilaku yang berlaku bagi seluruh karyawan.'],
-  ] },
-  { no: 'IV', judul: 'Organisasi dan Wilayah Operasi', sub: [
-    ['Struktur Organisasi', 'Dewan Pengawas, Direksi, dan unit kerja di kantor pusat.'],
-    ['Jaringan Kantor Cabang', 'Sebaran kantor cabang DAMRI di seluruh Indonesia.'],
-  ] },
-  { no: 'V', judul: 'Layanan DAMRI', sub: [
-    ['Angkutan Bandara', 'Layanan bus dari dan menuju bandar udara.'],
-    ['Angkutan Antarkota', 'Trayek antarkota dalam provinsi dan antarprovinsi.'],
-    ['Angkutan Perkotaan', 'Bus kota dan angkutan massal di wilayah perkotaan.'],
-    ['Angkutan Perintis', 'Penugasan pemerintah untuk menjangkau daerah terpencil dan perbatasan.'],
-    ['Angkutan Lintas Batas Negara', 'Trayek yang menghubungkan Indonesia dengan negara tetangga.'],
-    ['Pariwisata dan Logistik', 'Sewa bus pariwisata serta angkutan barang.'],
-  ] },
-  { no: 'VI', judul: 'DAMRI Cabang Bandar Lampung', sub: [
-    ['Profil Cabang', 'Sejarah singkat, alamat kantor, dan wilayah kerja cabang.'],
-    ['Trayek dan Layanan di Lampung', 'Daftar trayek dan layanan yang dijalankan cabang Bandar Lampung.'],
-    ['Sarana dan Fasilitas', 'Armada, pool, loket, dan fasilitas pendukung lainnya.'],
-  ] },
-  { no: 'VII', judul: 'Keselamatan dan Pelayanan', sub: [
-    ['Budaya Keselamatan', 'Prinsip keselamatan bagi pengemudi, awak, dan penumpang.'],
-    ['Standar Pelayanan Minimal', 'Standar pelayanan yang wajib dipenuhi dalam setiap perjalanan.'],
-    ['Pemesanan Tiket dan Pengaduan', 'Cara memesan tiket, kanal informasi resmi, dan saluran pengaduan.'],
-  ] },
-  { no: 'VIII', judul: 'Insan DAMRI', sub: [
-    ['Pengembangan Kompetensi', 'Program pelatihan dan jenjang karier karyawan.'],
-    ['Hak dan Kewajiban Karyawan', 'Ketentuan pokok yang perlu diketahui setiap karyawan.'],
-    ['Menjadi Duta DAMRI', 'Peran karyawan dalam menjaga nama baik perusahaan.'],
-  ] },
-];
-
-const PENUTUP = [
-  'Demikian buku Pengetahuan Seputar DAMRI ini kami susun. Melalui buku ini, pembaca diajak mengenal DAMRI dari berbagai sisi: sejarah panjangnya sejak 1946, nilai-nilai yang menjadi pegangan, ragam layanan yang diberikan, hingga peran DAMRI Cabang Bandar Lampung dalam melayani masyarakat Lampung.',
-  'Bagi karyawan, mengenal perusahaan adalah dasar untuk bekerja dengan bangga dan penuh tanggung jawab. Karyawan yang memahami sejarah dan nilai perusahaannya akan lebih siap menjadi duta DAMRI di mana pun ia bertugas. Bagi masyarakat, kami berharap buku ini menambah wawasan dan mempererat kedekatan dengan DAMRI.',
-  'Informasi dalam buku ini disusun berdasarkan data yang tersedia pada saat penyusunan. Layanan dan kebijakan perusahaan dapat berkembang sewaktu-waktu. Untuk informasi terbaru, pembaca dapat menghubungi kantor DAMRI Cabang Bandar Lampung atau mengunjungi situs resmi Perum DAMRI di damri.co.id.',
-  'Saran dan masukan untuk penyempurnaan buku ini dapat disampaikan kepada Bagian SDM DAMRI Cabang Bandar Lampung. Terima kasih telah membaca, dan selamat melanjutkan perjalanan bersama DAMRI.',
-];
+// Naskah buku ada di isi.js; berkas ini hanya mengatur tata letak.
+const { KATA_PENGANTAR, PENANDA_TANGAN, BAB, PENUTUP, PUSTAKA } = require('./isi');
 
 // ---------- Gambar ----------
 
@@ -148,7 +80,16 @@ function judul(level, teks, { kicker, pisahHalaman = true } = {}) {
   });
 }
 
-const paragraf = (teks) => new Paragraph({ children: [new TextRun(teks)] });
+// Teks naskah boleh memuat **tebal** dan _miring_.
+function runs(teks, opsi = {}) {
+  return teks.split(/(\*\*[^*]+\*\*|_[^_]+_)/).filter(Boolean).map((bagian) => {
+    if (bagian.startsWith('**')) return new TextRun({ text: bagian.slice(2, -2), bold: true, ...opsi });
+    if (bagian.startsWith('_')) return new TextRun({ text: bagian.slice(1, -1), italics: true, ...opsi });
+    return new TextRun({ text: bagian, ...opsi });
+  });
+}
+
+const paragraf = (teks) => new Paragraph({ children: runs(teks) });
 
 // ---------- Sampul ----------
 
@@ -246,13 +187,117 @@ function daftarIsi() {
 
 // ---------- Isi ----------
 
-function kerangkaBab() {
+let nomorDaftar = 0; // tiap daftar bernomor mulai lagi dari 1
+
+const garisTipis = { style: BorderStyle.SINGLE, size: 4, color: WARNA.garis };
+const tanpaGaris = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
+
+function lebarKolom(perbandingan) {
+  const total = perbandingan.reduce((a, b) => a + b, 0);
+  const lebar = perbandingan.map((p) => Math.floor(LEBAR_ISI * p / total));
+  lebar[lebar.length - 1] += LEBAR_ISI - lebar.reduce((a, b) => a + b, 0);
+  return lebar;
+}
+
+function tabel({ kolom, baris, lebar }) {
+  const ukuran = lebarKolom(lebar || kolom.map(() => 1));
+  const sel = (teks, i, opsi) => new TableCell({
+    width: { size: ukuran[i], type: WidthType.DXA },
+    margins: { top: 50, bottom: 50, left: 90, right: 90 },
+    shading: opsi.latar ? { type: ShadingType.CLEAR, color: 'auto', fill: opsi.latar } : undefined,
+    children: [new Paragraph({
+      alignment: AlignmentType.LEFT,
+      spacing: { after: 0, ...spasi(264) },
+      children: runs(teks, { size: 18, ...opsi.teks }),
+    })],
+  });
+  return new Table({
+    width: { size: LEBAR_ISI, type: WidthType.DXA },
+    columnWidths: ukuran,
+    borders: {
+      top: garisTipis, bottom: garisTipis, left: tanpaGaris, right: tanpaGaris,
+      insideHorizontal: garisTipis, insideVertical: tanpaGaris,
+    },
+    rows: [
+      new TableRow({
+        tableHeader: true, cantSplit: true,
+        children: kolom.map((k, i) => sel(k, i, { latar: WARNA.navy, teks: { bold: true, color: 'FFFFFF' } })),
+      }),
+      ...baris.map((isi, r) => new TableRow({
+        cantSplit: true,
+        children: isi.map((k, i) => sel(k, i, { latar: r % 2 ? WARNA.latarBaris : undefined })),
+      })),
+    ],
+  });
+}
+
+// Kotak informasi berlatar biru muda, misalnya "Tahukah Anda?".
+function kotak({ judul: kepala, isi }) {
+  return new Table({
+    width: { size: LEBAR_ISI, type: WidthType.DXA },
+    columnWidths: [LEBAR_ISI],
+    borders: {
+      top: tanpaGaris, bottom: tanpaGaris, right: tanpaGaris,
+      left: { style: BorderStyle.SINGLE, size: 24, color: WARNA.navy },
+      insideHorizontal: tanpaGaris, insideVertical: tanpaGaris,
+    },
+    rows: [new TableRow({
+      cantSplit: true,
+      children: [new TableCell({
+        width: { size: LEBAR_ISI, type: WidthType.DXA },
+        margins: { top: 100, bottom: 100, left: 160, right: 140 },
+        shading: { type: ShadingType.CLEAR, color: 'auto', fill: WARNA.latarKotak },
+        children: [
+          new Paragraph({
+            alignment: AlignmentType.LEFT, spacing: { after: 40, ...spasi(264) },
+            children: [new TextRun({ text: kepala, bold: true, size: 19, color: WARNA.navy })],
+          }),
+          ...[].concat(isi).map((teks) => new Paragraph({
+            alignment: AlignmentType.LEFT, spacing: { after: 40, ...spasi(276) },
+            children: runs(teks, { size: 19 }),
+          })),
+        ],
+      })],
+    })],
+  });
+}
+
+// Jarak kosong setelah tabel atau kotak agar tidak menempel ke paragraf berikutnya.
+const jeda = () => new Paragraph({ spacing: { after: 0, ...spasi(200) }, children: [] });
+
+function blok(b) {
+  if (typeof b === 'string') return [paragraf(b)];
+  if (b.daftar) {
+    return b.daftar.map((teks) => new Paragraph({
+      numbering: { reference: 'titik', level: 0 },
+      spacing: { after: 60 },
+      children: runs(teks),
+    }));
+  }
+  if (b.langkah) {
+    nomorDaftar += 1;
+    return b.langkah.map((teks) => new Paragraph({
+      numbering: { reference: 'angka', level: 0, instance: nomorDaftar },
+      spacing: { after: 60 },
+      children: runs(teks),
+    }));
+  }
+  if (b.tabel) return [tabel(b.tabel), jeda()];
+  if (b.kotak) return [kotak(b.kotak), jeda()];
+  if (b.lengkapi) return [new Paragraph({ style: 'Panduan', children: runs(b.lengkapi) })];
+  throw new Error(`Blok tidak dikenal: ${JSON.stringify(b)}`);
+}
+
+function isiBab() {
   const hasil = [];
   BAB.forEach((bab, i) => {
     hasil.push(judul(1, bab.judul.toUpperCase(), { kicker: `BAB ${bab.no}`, pisahHalaman: i > 0 }));
-    bab.sub.forEach(([sub, panduan], j) => {
-      hasil.push(judul(2, `${i + 1}.${j + 1} ${sub}`));
-      hasil.push(new Paragraph({ style: 'Panduan', children: [new TextRun(panduan)] }));
+    if (bab.pembuka) {
+      hasil.push(new Paragraph({ style: 'Pembuka', children: runs(bab.pembuka) }));
+    }
+    bab.sub.forEach((sub, j) => {
+      hasil.push(judul(2, `${i + 1}.${j + 1} ${sub.judul}`));
+      sub.isi.forEach((b) => hasil.push(...blok(b)));
     });
   });
   return hasil;
@@ -262,14 +307,44 @@ function penutup() {
   return [judul(1, 'PENUTUP'), ...PENUTUP.map(paragraf)];
 }
 
+function daftarPustaka() {
+  return [
+    judul(1, 'DAFTAR PUSTAKA'),
+    ...PUSTAKA.map((teks) => new Paragraph({
+      alignment: AlignmentType.LEFT,
+      indent: { left: mm(8), hanging: mm(8) },
+      spacing: { after: 100, ...spasi(276) },
+      children: runs(teks, { size: 19 }),
+    })),
+  ];
+}
+
 // ---------- Dokumen ----------
 
 const halamanAwal = kataPengantar().concat(daftarIsi());
-const isi = kerangkaBab().concat(penutup());
+const isi = isiBab().concat(penutup(), daftarPustaka());
 
 const doc = new Document({
   title: 'Pengetahuan Seputar DAMRI',
   creator: 'Perum DAMRI Cabang Bandar Lampung',
+  numbering: {
+    config: [
+      {
+        reference: 'titik',
+        levels: [{
+          level: 0, format: LevelFormat.BULLET, text: '\u2022', alignment: AlignmentType.LEFT,
+          style: { paragraph: { indent: { left: mm(6), hanging: mm(4) } } },
+        }],
+      },
+      {
+        reference: 'angka',
+        levels: [{
+          level: 0, format: LevelFormat.DECIMAL, text: '%1.', alignment: AlignmentType.LEFT,
+          style: { paragraph: { indent: { left: mm(6), hanging: mm(5) } } },
+        }],
+      },
+    ],
+  },
   styles: {
     default: {
       document: {
@@ -293,6 +368,11 @@ const doc = new Document({
           alignment: AlignmentType.LEFT, outlineLevel: 1, keepNext: true,
           spacing: { before: 240, after: 80, ...spasi(276) },
         },
+      },
+      {
+        id: 'Pembuka', name: 'Pembuka Bab', basedOn: 'Normal', next: 'Normal', quickFormat: true,
+        run: { size: 21, italics: true, color: WARNA.abu },
+        paragraph: { alignment: AlignmentType.CENTER, spacing: { after: 240, ...spasi(300) } },
       },
       {
         id: 'Panduan', name: 'Panduan Penulisan', basedOn: 'Normal', next: 'Normal', quickFormat: true,
