@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Menyusun ulang buku: .docx, nomor halaman daftar isi, lalu .pdf.
+# Menyusun ulang buku: bagan organisasi, .docx, nomor halaman daftar isi, lalu .pdf.
 set -euo pipefail
 cd "$(dirname "$0")"
+node bagan.js
 node build.js
 python3 halaman.py
 node build.js

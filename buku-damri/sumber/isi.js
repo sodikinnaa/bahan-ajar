@@ -632,4 +632,7 @@ const PUSTAKA = [
   'Jurnal Atrabis. Kajian makna logo Perum DAMRI. https://jurnal.plb.ac.id/index.php/atrabis/article/download/230/135',
 ];
 
-module.exports = { KATA_PENGANTAR, PENANDA_TANGAN, BAB, PENUTUP, PUSTAKA };
+// Bagan struktur organisasi, digambar oleh bagan.js.
+const BAGAN = {};
+
+module.exports = { KATA_PENGANTAR, PENANDA_TANGAN, BAB, PENUTUP, PUSTAKA, BAGAN };

@@ -275,6 +275,28 @@ function kotak({ judul: kepala, isi }) {
 // Jarak kosong setelah tabel atau kotak agar tidak menempel ke paragraf berikutnya.
 const jeda = () => new Paragraph({ spacing: { after: 0, ...spasi(200) }, children: [] });
 
+// Bagan organisasi dari ../aset/bagan-<nama>.png (dibuat bagan.js), selebar
+// area isi, dengan keterangan gambar di bawahnya.
+function gambarBagan({ bagan, keterangan }) {
+  const data = fs.readFileSync(path.join(ASET, `bagan-${bagan}.png`));
+  const { w, h } = ukuranPng(data);
+  const lebar = LEBAR_ISI / 56.6929; // mm
+  return [
+    new Paragraph({
+      alignment: AlignmentType.CENTER, keepNext: true, spacing: { before: 120, after: 60, ...spasi(240) },
+      children: [new ImageRun({
+        type: 'png', data,
+        transformation: { width: px(lebar), height: px(lebar * h / w) },
+        altText: { name: keterangan, title: keterangan, description: keterangan },
+      })],
+    }),
+    new Paragraph({
+      alignment: AlignmentType.CENTER, spacing: { after: 200 },
+      children: runs(keterangan, { size: 18, italics: true, color: WARNA.abu }),
+    }),
+  ];
+}
+
 // Butir terakhir sebuah daftar diberi jarak paragraf biasa.
 const jarakButir = (i, daftar) => ({ after: i === daftar.length - 1 ? 140 : 60 });
 
@@ -304,6 +326,7 @@ function blok(b, { akhirBab = false } = {}) {
   if (b.tabel) return [tabel(b.tabel), ...penutupBlok];
   if (b.kotak) return [kotak(b.kotak), ...penutupBlok];
   if (b.lengkapi) return [new Paragraph({ style: 'Panduan', children: runs(b.lengkapi) })];
+  if (b.bagan) return gambarBagan(b);
   throw new Error(`Blok tidak dikenal: ${JSON.stringify(b)}`);
 }
 
