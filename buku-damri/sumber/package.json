@@ -1,0 +1,12 @@
+{
+  "name": "buku-pengetahuan-damri",
+  "private": true,
+  "description": "Menyusun buku Pengetahuan Seputar DAMRI dalam format .docx",
+  "scripts": {
+    "build": "bash build.sh"
+  },
+  "dependencies": {
+    "docx": "^9.7.2",
+    "jszip": "^3.10.1"
+  }
+}
