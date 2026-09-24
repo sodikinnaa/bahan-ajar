@@ -8,11 +8,13 @@ disusun oleh Perum DAMRI Cabang Bandar Lampung. Ukuran halaman A5.
 | `Pengetahuan-Seputar-DAMRI.docx` | Naskah Word yang bisa diedit |
 | `Pengetahuan-Seputar-DAMRI.pdf` | Versi siap baca atau cetak |
 | `aset/` | Logo dan latar sampul |
+| `sumber/isi.js` | Naskah buku (teks setiap bab) |
 | `sumber/` | Skrip penyusun `.docx` |
 
-Isi saat ini: sampul, kata pengantar, daftar isi, kerangka Bab I–VIII, dan
-penutup. Setiap subbab masih berisi panduan singkat bergaris kuning yang
-diganti dengan isi sebenarnya.
+Isi: sampul, kata pengantar, daftar isi, Bab I–VIII, penutup, dan daftar
+pustaka (38 halaman). Beberapa catatan bergaris kuning bertanda "Lengkapi"
+menandai data internal cabang yang belum tersedia di sumber publik; ganti
+dengan data resmi lalu hapus catatannya.
 
 ## Halaman awal dan nomor halaman
 

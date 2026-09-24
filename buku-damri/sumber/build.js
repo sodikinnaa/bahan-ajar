@@ -199,8 +199,13 @@ function lebarKolom(perbandingan) {
   return lebar;
 }
 
+// Tabel pendek dijaga agar tidak terpotong di pergantian halaman; tabel
+// panjang boleh berlanjut dengan baris judul yang diulang.
+const TABEL_PENDEK = 600; // jumlah karakter isi
+
 function tabel({ kolom, baris, lebar }) {
   const ukuran = lebarKolom(lebar || kolom.map(() => 1));
+  const utuh = baris.flat().join('').length <= TABEL_PENDEK;
   const sel = (teks, i, opsi) => new TableCell({
     width: { size: ukuran[i], type: WidthType.DXA },
     margins: { top: 50, bottom: 50, left: 90, right: 90 },
@@ -208,6 +213,7 @@ function tabel({ kolom, baris, lebar }) {
     children: [new Paragraph({
       alignment: AlignmentType.LEFT,
       spacing: { after: 0, ...spasi(264) },
+      keepNext: opsi.lanjut,
       children: runs(teks, { size: 18, ...opsi.teks }),
     })],
   });
@@ -221,11 +227,15 @@ function tabel({ kolom, baris, lebar }) {
     rows: [
       new TableRow({
         tableHeader: true, cantSplit: true,
-        children: kolom.map((k, i) => sel(k, i, { latar: WARNA.navy, teks: { bold: true, color: 'FFFFFF' } })),
+        children: kolom.map((k, i) => sel(k, i, {
+          latar: WARNA.navy, teks: { bold: true, color: 'FFFFFF' }, lanjut: true,
+        })),
       }),
       ...baris.map((isi, r) => new TableRow({
         cantSplit: true,
-        children: isi.map((k, i) => sel(k, i, { latar: r % 2 ? WARNA.latarBaris : undefined })),
+        children: isi.map((k, i) => sel(k, i, {
+          latar: r % 2 ? WARNA.latarBaris : undefined, lanjut: utuh && r < baris.length - 1,
+        })),
       })),
     ],
   });
@@ -265,25 +275,34 @@ function kotak({ judul: kepala, isi }) {
 // Jarak kosong setelah tabel atau kotak agar tidak menempel ke paragraf berikutnya.
 const jeda = () => new Paragraph({ spacing: { after: 0, ...spasi(200) }, children: [] });
 
-function blok(b) {
-  if (typeof b === 'string') return [paragraf(b)];
+// Butir terakhir sebuah daftar diberi jarak paragraf biasa.
+const jarakButir = (i, daftar) => ({ after: i === daftar.length - 1 ? 140 : 60 });
+
+// akhirBab: blok terakhir sebelum bab baru. Jeda di posisi itu bisa terdorong
+// sendirian ke halaman berikutnya dan menghasilkan halaman kosong.
+function blok(b, { akhirBab = false } = {}) {
+  const penutupBlok = akhirBab ? [] : [jeda()];
+  if (typeof b === 'string') {
+    // Kalimat pengantar yang berakhir titik dua tetap satu halaman dengan isinya.
+    return [new Paragraph({ keepNext: b.endsWith(':'), children: runs(b) })];
+  }
   if (b.daftar) {
-    return b.daftar.map((teks) => new Paragraph({
+    return b.daftar.map((teks, i, daftar) => new Paragraph({
       numbering: { reference: 'titik', level: 0 },
-      spacing: { after: 60 },
+      spacing: jarakButir(i, daftar),
       children: runs(teks),
     }));
   }
   if (b.langkah) {
     nomorDaftar += 1;
-    return b.langkah.map((teks) => new Paragraph({
+    return b.langkah.map((teks, i, daftar) => new Paragraph({
       numbering: { reference: 'angka', level: 0, instance: nomorDaftar },
-      spacing: { after: 60 },
+      spacing: jarakButir(i, daftar),
       children: runs(teks),
     }));
   }
-  if (b.tabel) return [tabel(b.tabel), jeda()];
-  if (b.kotak) return [kotak(b.kotak), jeda()];
+  if (b.tabel) return [tabel(b.tabel), ...penutupBlok];
+  if (b.kotak) return [kotak(b.kotak), ...penutupBlok];
   if (b.lengkapi) return [new Paragraph({ style: 'Panduan', children: runs(b.lengkapi) })];
   throw new Error(`Blok tidak dikenal: ${JSON.stringify(b)}`);
 }
@@ -297,7 +316,10 @@ function isiBab() {
     }
     bab.sub.forEach((sub, j) => {
       hasil.push(judul(2, `${i + 1}.${j + 1} ${sub.judul}`));
-      sub.isi.forEach((b) => hasil.push(...blok(b)));
+      const subTerakhir = j === bab.sub.length - 1;
+      sub.isi.forEach((b, k) => {
+        hasil.push(...blok(b, { akhirBab: subTerakhir && k === sub.isi.length - 1 }));
+      });
     });
   });
   return hasil;
@@ -340,7 +362,7 @@ const doc = new Document({
         reference: 'angka',
         levels: [{
           level: 0, format: LevelFormat.DECIMAL, text: '%1.', alignment: AlignmentType.LEFT,
-          style: { paragraph: { indent: { left: mm(6), hanging: mm(5) } } },
+          style: { paragraph: { indent: { left: mm(7), hanging: mm(6) } } },
         }],
       },
     ],

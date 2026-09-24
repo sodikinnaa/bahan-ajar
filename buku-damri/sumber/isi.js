@@ -20,6 +20,194 @@ const PENANDA_TANGAN = {
   nama: '(Nama Lengkap)',
 };
 
+const BAB_MENGENAL = {
+  no: 'I', judul: 'Mengenal DAMRI',
+  pembuka: 'Hampir setiap orang Indonesia pernah melihat bus DAMRI. Namun, belum banyak yang tahu arti namanya dan perjalanan panjang di baliknya.',
+  sub: [
+    {
+      judul: 'Arti Nama DAMRI',
+      isi: [
+        'DAMRI adalah singkatan dari **Djawatan Angkoetan Motor Republik Indonesia**. Nama ini ditulis dengan ejaan lama yang berlaku pada 1946, tahun ketika DAMRI didirikan. Dalam ejaan sekarang, nama tersebut berarti _Jawatan Angkutan Motor Republik Indonesia_.',
+        { tabel: {
+          kolom: ['Kata', 'Arti'],
+          lebar: [1.2, 3.3],
+          baris: [
+            ['Djawatan', 'Jawatan, yaitu instansi atau lembaga pemerintah.'],
+            ['Angkoetan', 'Angkutan, yaitu kegiatan memindahkan orang dan barang.'],
+            ['Motor', 'Kendaraan bermotor, seperti bus dan truk.'],
+            ['Republik Indonesia', 'Menunjukkan bahwa lembaga ini milik negara Republik Indonesia.'],
+          ],
+        } },
+        'Sejak itu status dan bentuk badan hukum DAMRI beberapa kali berubah, tetapi nama DAMRI tetap dipakai hingga sekarang dan dikenal luas oleh masyarakat.',
+        { kotak: {
+          judul: 'Tahukah Anda?',
+          isi: 'Tanggal 25 November, hari lahirnya DAMRI pada 1946, diperingati setiap tahun sebagai hari jadi perusahaan. Pada 25 November 2026, DAMRI genap berusia 80 tahun.',
+        } },
+      ],
+    },
+    {
+      judul: 'Status dan Bidang Usaha',
+      isi: [
+        'DAMRI berbentuk **Perusahaan Umum (Perum)**, yaitu Badan Usaha Milik Negara yang seluruh modalnya dimiliki negara dan tidak terbagi atas saham. Perum bertujuan menyediakan barang atau jasa yang bermutu bagi kemanfaatan umum, sekaligus mengejar keuntungan berdasarkan prinsip pengelolaan perusahaan yang sehat.',
+        'Dasar hukum Perum DAMRI saat ini adalah **Peraturan Pemerintah Nomor 38 Tahun 2018** tentang Perusahaan Umum (Perum) DAMRI. Bidang usaha utamanya adalah angkutan orang dan barang dengan kendaraan bermotor di jalan, beserta usaha lain yang mendukungnya.',
+        'Sebagai perusahaan milik negara, DAMRI menjalankan dua peran sekaligus. Di satu sisi, DAMRI melayani penumpang secara komersial. Di sisi lain, DAMRI menjalankan penugasan pemerintah, misalnya angkutan perintis yang menjangkau daerah terpencil dan perbatasan.',
+        'Pada September 2026, pemerintah menegaskan bahwa DAMRI tetap berstatus Perum bersama sejumlah BUMN lain. Pembinaan BUMN saat ini dijalankan oleh Badan Pengaturan BUMN.',
+        { kotak: {
+          judul: 'Kantor Pusat Perum DAMRI',
+          isi: 'Jl. Matraman Raya No. 25, Palmeriam, Matraman, Jakarta Timur 13140.',
+        } },
+      ],
+    },
+    {
+      judul: 'Logo dan Identitas Perusahaan',
+      isi: [
+        'Logo DAMRI yang dipakai sekarang diperkenalkan pada 2018, bersamaan dengan pembaruan citra (_rebranding_) perusahaan. Peluncurannya dilakukan pada Rapat Kerja DAMRI di Sentul, Jawa Barat.',
+        'Logo baru ini memadukan dua unsur utama:',
+        { daftar: [
+          '**Tiga garis biru yang bersilangan**, melambangkan sayap Garuda dan bermakna keamanan serta keteraturan.',
+          '**Lingkaran kuning-oranye**, melambangkan roda kendaraan yang terus berputar menjangkau seluruh Nusantara hingga kawasan ASEAN.',
+        ] },
+        'Warna biru juga mencerminkan ketenangan, kepercayaan, rasa aman, teknologi, dan kebersihan. Nilai-nilai tersebut ingin dihadirkan DAMRI dalam setiap layanannya.',
+        'Identitas DAMRI tidak hanya terlihat pada logo, tetapi juga pada warna armada, seragam awak, tampilan loket, dan cara karyawan melayani penumpang. Karena itu, setiap karyawan wajib memakai logo dan atribut perusahaan sesuai ketentuan.',
+        { lengkapi: 'Sesuaikan uraian makna logo dengan pedoman identitas visual resmi Perum DAMRI.' },
+      ],
+    },
+  ],
+};
+
+const BAB_SEJARAH = {
+  no: 'II', judul: 'Sejarah Perjalanan DAMRI',
+  pembuka: 'Perjalanan DAMRI berawal dari masa pendudukan Jepang dan terus berkembang seiring perjalanan bangsa Indonesia.',
+  sub: [
+    {
+      judul: 'Masa Pendudukan Jepang',
+      isi: [
+        'Cikal bakal DAMRI dapat ditelusuri hingga masa pendudukan Jepang di Indonesia (1942–1945). Pada masa itu terdapat dua usaha angkutan yang terpisah:',
+        { daftar: [
+          '_Jawa Unyu Zigyosha_, yang melayani angkutan barang dengan truk dan gerobak.',
+          '_Zidosha Sokyoku_, yang melayani angkutan penumpang dengan bus.',
+        ] },
+        'Ejaan kedua nama ini sedikit berbeda di berbagai sumber, misalnya _Jawa Unyu Zidousha_ dan _Zidousha Sokyoku_, tetapi yang dimaksud adalah dua usaha angkutan yang sama.',
+      ],
+    },
+    {
+      judul: 'Lahirnya DAMRI Tahun 1946',
+      isi: [
+        'Setelah Indonesia merdeka pada 17 Agustus 1945, kedua usaha angkutan tersebut diambil alih oleh Kementerian Perhubungan Republik Indonesia. Angkutan barang berganti nama menjadi **Djawatan Pengangkoetan**, sedangkan angkutan penumpang menjadi **Djawatan Angkoetan Darat**.',
+        'Pada **25 November 1946**, melalui **Maklumat Menteri Perhubungan RI Nomor 01/DAM/46**, kedua djawatan itu digabungkan menjadi satu lembaga bernama **Djawatan Angkoetan Motor Republik Indonesia (DAMRI)**. Tugasnya adalah menyelenggarakan angkutan jalan dengan bus, truk, dan kendaraan bermotor lainnya.',
+        'DAMRI lahir di tengah masa perjuangan mempertahankan kemerdekaan. Sejak awal, keberadaannya tidak dapat dipisahkan dari kebutuhan bangsa akan sarana angkutan yang menghubungkan satu daerah dengan daerah lain.',
+      ],
+    },
+    {
+      judul: 'Menjadi Perusahaan Umum',
+      isi: [
+        'Bentuk DAMRI berubah beberapa kali mengikuti kebijakan pemerintah dalam mengelola usaha milik negara:',
+        { daftar: [
+          '**1961**: melalui Peraturan Pemerintah Nomor 233 Tahun 1961, dibentuk Badan Pimpinan Umum Perusahaan Negara (BPUPN) Angkutan Motor "DAMRI".',
+          '**1965**: BPUPN dibubarkan dan DAMRI menjadi Perusahaan Negara (PN) Angkutan Motor DAMRI.',
+          '**1982**: melalui Peraturan Pemerintah Nomor 30 Tahun 1982, PN Angkutan Motor DAMRI diubah menjadi Perusahaan Umum (Perum) DAMRI.',
+          '**1984**: Peraturan Pemerintah Nomor 31 Tahun 1984 menyempurnakan ketentuan tentang Perum DAMRI.',
+          '**2002**: Peraturan Pemerintah Nomor 31 Tahun 2002 kembali memperbarui dasar hukum Perum DAMRI.',
+        ] },
+        'Perubahan menjadi Perum menandai peran ganda DAMRI yang masih dijalankan hingga kini: melayani kepentingan umum sekaligus dikelola sebagai perusahaan yang sehat.',
+      ],
+    },
+    {
+      judul: 'DAMRI di Era Modern',
+      isi: [
+        'Memasuki abad ke-21, DAMRI terus memperbarui diri, baik dari sisi aturan, layanan, maupun armada.',
+        { daftar: [
+          '**2018**: Peraturan Pemerintah Nomor 38 Tahun 2018 tentang Perum DAMRI ditetapkan pada 6 Agustus 2018 dan menggantikan aturan tahun 2002. Pada tahun yang sama, DAMRI meluncurkan logo barunya.',
+          '**2023**: melalui Peraturan Pemerintah Nomor 30 Tahun 2023, Perum PPD (Pengangkutan Penumpang Djakarta) digabungkan ke dalam Perum DAMRI. Sekitar 600 bus dan 1.808 pekerja PPD beralih ke DAMRI tanpa pemutusan hubungan kerja.',
+          '**2023**: DAMRI mengoperasikan bus tingkat _Imperial Suites_ untuk rute Jakarta–Surabaya–Malang.',
+          '**2026**: DAMRI mengoperasikan 316 bus listrik untuk layanan Transjakarta dan membuka layanan lintas tiga negara Pontianak–Kuching–Bandar Seri Begawan.',
+          '**2026**: DAMRI meraih Transportasi Indonesia Award 2026 untuk kategori konektivitas nasional dan layanan transportasi publik.',
+        ] },
+      ],
+    },
+    {
+      judul: 'Linimasa DAMRI',
+      isi: [
+        'Ringkasan perjalanan DAMRI dari masa ke masa:',
+        { tabel: {
+          kolom: ['Tahun', 'Peristiwa'],
+          lebar: [0.9, 3.6],
+          baris: [
+            ['1942–1945', 'Jawa Unyu Zigyosha (barang) dan Zidosha Sokyoku (penumpang) beroperasi.'],
+            ['1945', 'Keduanya menjadi Djawatan Pengangkoetan dan Djawatan Angkoetan Darat.'],
+            ['1946', 'DAMRI lahir pada 25 November melalui Maklumat Menteri Perhubungan No. 01/DAM/46.'],
+            ['1961', 'Menjadi BPUPN Angkutan Motor "DAMRI" (PP No. 233/1961).'],
+            ['1965', 'Menjadi Perusahaan Negara (PN) Angkutan Motor DAMRI.'],
+            ['1982', 'Menjadi Perusahaan Umum (Perum) DAMRI (PP No. 30/1982).'],
+            ['1984', 'Penyempurnaan aturan Perum DAMRI (PP No. 31/1984).'],
+            ['2002', 'Dasar hukum baru Perum DAMRI (PP No. 31/2002).'],
+            ['2018', 'PP No. 38/2018 tentang Perum DAMRI dan logo baru.'],
+            ['2023', 'Penggabungan Perum PPD ke dalam Perum DAMRI (PP No. 30/2023).'],
+            ['2026', 'DAMRI genap berusia 80 tahun pada 25 November.'],
+          ],
+        } },
+      ],
+    },
+  ],
+};
+
+const VISI_MISI = {
+  judul: 'Visi dan Misi',
+  isi: [
+    'Visi dan misi menjadi arah bagi seluruh insan DAMRI dalam bekerja.',
+    { kotak: {
+      judul: 'Visi',
+      isi: 'Menjadi perusahaan transportasi jalan kelas dunia yang berkinerja unggul dan berkelanjutan dengan memberikan pelayanan yang berkualitas bagi pelanggan untuk mendukung konektivitas nasional.',
+    } },
+    '**Misi** Perum DAMRI adalah sebagai berikut.',
+    { langkah: [
+      'Menyediakan alat produksi yang andal, modern, dan berbasis teknologi mutakhir untuk mendukung konektivitas transportasi.',
+      'Memberikan pelayanan yang berkualitas prima, berkeselamatan, dan berorientasi kepada pelanggan.',
+      'Mengembangkan _human capital_ yang profesional dan inovatif untuk mengoptimalkan profit guna meningkatkan nilai tambah kepada pemangku kepentingan.',
+      'Menjalankan prinsip-prinsip tata kelola perusahaan yang baik (_Good Corporate Governance_) dalam aktivitas usaha perusahaan.',
+    ] },
+    'Bagi karyawan cabang, visi dan misi ini diwujudkan dalam pekerjaan sehari-hari: armada yang terawat, perjalanan yang selamat dan tepat waktu, pelayanan yang ramah, serta pengelolaan keuangan dan administrasi yang tertib.',
+  ],
+};
+
+const BAB_ORGANISASI = {
+  no: 'IV', judul: 'Organisasi dan Wilayah Operasi',
+  pembuka: 'Dari kantor pusat di Jakarta hingga cabang di daerah, DAMRI bekerja sebagai satu organisasi.',
+  sub: [
+    {
+      judul: 'Struktur Organisasi',
+      isi: [
+        'Menurut Peraturan Pemerintah Nomor 38 Tahun 2018, organ Perum DAMRI terdiri atas **Menteri**, **Dewan Pengawas**, dan **Direksi**. Dewan Pengawas bertugas mengawasi dan memberi nasihat kepada Direksi, sedangkan Direksi bertanggung jawab atas pengurusan perusahaan sehari-hari.',
+        'Direksi Perum DAMRI terdiri atas jabatan-jabatan berikut:',
+        { tabel: {
+          kolom: ['Jabatan', 'Lingkup tugas utama'],
+          lebar: [2, 2.5],
+          baris: [
+            ['Direktur Utama', 'Memimpin dan mengoordinasikan seluruh Direksi.'],
+            ['Direktur Komersial dan Pengembangan Usaha', 'Penjualan, layanan pelanggan, dan pengembangan bisnis baru.'],
+            ['Direktur Keuangan dan Manajemen Risiko', 'Pengelolaan keuangan, akuntansi, dan risiko perusahaan.'],
+            ['Direktur Teknik dan Fasilitas', 'Armada, perawatan kendaraan, dan sarana prasarana.'],
+            ['Direktur SDM dan Umum', 'Pengelolaan dan pengembangan karyawan serta urusan umum.'],
+          ],
+        } },
+        'Direksi didukung oleh unit-unit di kantor pusat, antara lain Sekretariat Perusahaan dan Satuan Pengawas Internal.',
+      ],
+    },
+    {
+      judul: 'Jaringan Kantor Cabang',
+      isi: [
+        'Untuk menjangkau seluruh wilayah Indonesia, DAMRI memiliki **4 Divisi Regional** dan **44 kantor cabang**. Divisi Regional mengoordinasikan cabang-cabang di wilayahnya, sedangkan setiap cabang dipimpin oleh seorang General Manager yang bertanggung jawab atas operasional layanan di daerahnya.',
+        'Cabang merupakan ujung tombak pelayanan. Di cabanglah bus disiapkan, awak ditugaskan, tiket dijual, dan penumpang dilayani secara langsung.',
+        { kotak: {
+          judul: 'Tahukah Anda?',
+          isi: 'Untuk musim mudik Lebaran 2026, DAMRI menyiapkan 1.800 bus di seluruh Indonesia.',
+        } },
+        { lengkapi: 'Lengkapi: Divisi Regional yang membawahi DAMRI Cabang Bandar Lampung.' },
+      ],
+    },
+  ],
+};
+
 const NILAI_AKHLAK = {
   judul: 'Nilai Utama AKHLAK',
   isi: [
@@ -65,6 +253,195 @@ const ETIKA_KERJA = {
       judul: 'Ingat',
       isi: 'Satu tindakan kecil seorang karyawan di jalan atau di loket dapat membentuk kesan penumpang terhadap seluruh DAMRI.',
     } },
+  ],
+};
+
+const BAB_LAYANAN = {
+  no: 'V', judul: 'Layanan DAMRI',
+  pembuka: 'Dari bandara di kota besar hingga desa di perbatasan negara, DAMRI hadir melalui beragam layanan angkutan.',
+  sub: [
+    {
+      judul: 'Tujuh Segmen Layanan',
+      isi: [
+        'Peraturan Pemerintah Nomor 38 Tahun 2018 menetapkan kegiatan usaha Perum DAMRI, antara lain angkutan orang dan barang untuk umum, penugasan pemerintah pusat dan daerah seperti angkutan perintis dan angkutan perkotaan, penyewaan kendaraan, keagenan, serta pengiriman paket dan barang. Dalam praktiknya, layanan DAMRI dikelompokkan ke dalam tujuh segmen.',
+        { tabel: {
+          kolom: ['Segmen', 'Contoh layanan'],
+          lebar: [1.3, 3.2],
+          baris: [
+            ['Bandara', 'Bus dari dan menuju bandar udara, bus apron, dan bus antarterminal.'],
+            ['Antarkota', 'Trayek antarkota antarprovinsi (AKAP) dan antarkota dalam provinsi (AKDP).'],
+            ['Perkotaan', 'Bus kota, termasuk bus listrik Transjakarta dan Teman Bus.'],
+            ['Perintis', 'Trayek bersubsidi ke daerah terpencil, tertinggal, dan perbatasan.'],
+            ['Lintas batas negara', 'Trayek ke Malaysia, Brunei Darussalam, dan Timor Leste.'],
+            ['Logistik', 'Pengiriman paket dan barang.'],
+            ['Pariwisata', 'Sewa bus dan angkutan ke kawasan wisata.'],
+          ],
+        } },
+        'Sebagian layanan bersifat komersial, artinya dijalankan dengan tarif yang ditetapkan perusahaan. Sebagian lainnya merupakan **penugasan pemerintah**, yaitu layanan yang disubsidi agar masyarakat di daerah tertentu tetap mendapat angkutan dengan tarif terjangkau.',
+      ],
+    },
+    {
+      judul: 'Angkutan Bandara',
+      isi: [
+        'Angkutan bandara menghubungkan bandar udara dengan pusat kota dan kota-kota di sekitarnya. Layanan ini menjadi salah satu yang paling dikenal masyarakat, terutama di bandara-bandara besar seperti Soekarno-Hatta. Selain bus dari dan menuju bandara, DAMRI juga melayani bus apron yang mengantar penumpang dari terminal ke pesawat, serta bus antarterminal.',
+        'Sejak 1 Februari 2024, layanan DAMRI di Bandara Soekarno-Hatta dan Trans Jawa sepenuhnya memakai pembayaran nontunai, misalnya QRIS, uang elektronik, serta kartu debit dan kredit.',
+      ],
+    },
+    {
+      judul: 'Angkutan Antarkota',
+      isi: [
+        'Angkutan antarkota terdiri atas trayek **antarkota antarprovinsi (AKAP)** yang melintasi batas provinsi dan trayek **antarkota dalam provinsi (AKDP)**. DAMRI menyediakan beberapa kelas layanan, di antaranya Bisnis, Eksekutif, dan Royal Class.',
+        { daftar: [
+          'Sejak Desember 2023, DAMRI mengoperasikan bus tingkat _Imperial Suites_ untuk rute Jakarta–Surabaya–Malang.',
+          'Sejak 6 Maret 2026, DAMRI membuka rute Jakarta–Denpasar yang berangkat sekali seminggu dari masing-masing kota.',
+          'Dari Lampung, DAMRI melayani trayek ke berbagai kota di Pulau Jawa dan Sumatra. Rinciannya dibahas pada Bab VI.',
+        ] },
+      ],
+    },
+    {
+      judul: 'Angkutan Perkotaan',
+      isi: [
+        'Di kota-kota besar, DAMRI menjalankan angkutan massal yang sebagian besar merupakan penugasan atau kerja sama dengan pemerintah.',
+        { daftar: [
+          '**Transjakarta**: DAMRI menjadi operator bus listrik Transjakarta dengan armada terbanyak, yaitu 316 bus listrik pada 2026.',
+          '**Teman Bus**: program _Buy The Service_ Kementerian Perhubungan sejak Juni 2020. Di Bandung, DAMRI menjadi salah satu operatornya.',
+          '**Metro Jabar Trans**: sejak 1 Agustus 2026, DAMRI mengelola layanan ini dengan 60 bus pada empat koridor.',
+        ] },
+        { kotak: {
+          judul: 'Tahukah Anda?',
+          isi: 'Pada KTT G20 di Bali, November 2022, DAMRI bersama Kementerian Perhubungan dan PT INKA mengoperasikan 24 bus listrik untuk melayani para delegasi.',
+        } },
+      ],
+    },
+    {
+      judul: 'Angkutan Perintis',
+      isi: [
+        'Angkutan perintis adalah angkutan yang melayani daerah terpencil, tertinggal, dan perbatasan yang belum dilayani angkutan umum secara komersial. DAMRI menjalankan angkutan perintis sejak 2001 atas penugasan Kementerian Perhubungan melalui Direktorat Jenderal Perhubungan Darat. Kontrak subsidinya ditandatangani oleh Balai Pengelola Transportasi Darat (BPTD) di setiap wilayah.',
+        'Pada 2025, angkutan perintis DAMRI melayani 298 trayek di 36 provinsi, yaitu seluruh provinsi kecuali DKI Jakarta dan DI Yogyakarta. Trayek terbanyak berada di Papua, Nusa Tenggara Timur, dan Papua Barat. Karena disubsidi pemerintah, tarifnya jauh lebih murah daripada angkutan komersial.',
+        { kotak: {
+          judul: 'Mengapa perintis penting?',
+          isi: 'Bagi banyak warga di pelosok, bus perintis menjadi sarana untuk pergi ke pasar, sekolah, puskesmas, dan kantor pemerintahan. Di sinilah peran DAMRI sebagai perusahaan milik negara paling terasa.',
+        } },
+      ],
+    },
+    {
+      judul: 'Angkutan Lintas Batas Negara',
+      isi: [
+        'DAMRI juga menghubungkan Indonesia dengan negara tetangga melalui pos lintas batas negara. Penumpang layanan ini wajib membawa paspor.',
+        { tabel: {
+          kolom: ['Trayek', 'Keterangan'],
+          lebar: [2.2, 2.3],
+          baris: [
+            ['Pontianak–Entikong–Kuching (Malaysia)', 'Kembali beroperasi pada 2022 setelah pandemi.'],
+            ['Pontianak–Bandar Seri Begawan (Brunei Darussalam)', 'Kembali beroperasi Maret 2023; melintasi tiga negara.'],
+            ['Kupang–Mota\'ain–Dili (Timor Leste)', 'Mulai beroperasi 30 Maret 2023.'],
+            ['Singkawang–Aruk–Kuching (Malaysia)', 'Mulai beroperasi 1 Desember 2023.'],
+          ],
+        } },
+      ],
+    },
+    {
+      judul: 'Pariwisata dan Logistik',
+      isi: [
+        '**Pariwisata.** Masyarakat dan instansi dapat menyewa bus DAMRI untuk perjalanan wisata atau kegiatan rombongan. DAMRI juga mendapat penugasan pemerintah untuk melayani angkutan menuju Kawasan Strategis Pariwisata Nasional, misalnya kawasan Danau Toba.',
+        '**Logistik.** Melalui layanan angkutan barang, DAMRI mengirim paket dan barang antarkota dengan memanfaatkan jaringan trayeknya. Layanan ini juga dikembangkan melalui kerja sama dengan mitra logistik.',
+      ],
+    },
+  ],
+};
+
+const BAB_KESELAMATAN = {
+  no: 'VII', judul: 'Keselamatan dan Pelayanan',
+  pembuka: 'Selamat sampai tujuan adalah janji pertama DAMRI kepada setiap penumpang.',
+  sub: [
+    {
+      judul: 'Budaya Keselamatan',
+      isi: [
+        'Keselamatan angkutan umum diatur dalam Undang-Undang Nomor 22 Tahun 2009 tentang Lalu Lintas dan Angkutan Jalan. Perusahaan angkutan umum juga wajib menerapkan **Sistem Manajemen Keselamatan (SMK)** sesuai Peraturan Menteri Perhubungan Nomor PM 85 Tahun 2018. SMK tersebut memuat sepuluh unsur:',
+        { langkah: [
+          'Komitmen dan kebijakan keselamatan.',
+          'Pengorganisasian.',
+          'Manajemen bahaya dan risiko.',
+          'Fasilitas pemeliharaan dan perbaikan kendaraan.',
+          'Dokumentasi dan data.',
+          'Peningkatan kompetensi dan pelatihan.',
+          'Tanggap darurat.',
+          'Pelaporan kecelakaan internal.',
+          'Monitoring dan evaluasi.',
+          'Pengukuran kinerja.',
+        ] },
+        'Dalam praktik sehari-hari, keselamatan dijaga melalui pemeriksaan kondisi kendaraan sebelum berangkat, pemeriksaan kesehatan awak sebelum bertugas, penugasan dua pengemudi untuk perjalanan jarak jauh, serta uji berkala kendaraan. Menjelang Lebaran serta Natal dan Tahun Baru, petugas perhubungan juga melakukan _ramp check_ untuk memeriksa rem, ban, lampu, dan kelengkapan dokumen bus.',
+        { kotak: {
+          judul: 'Aturan waktu kerja pengemudi',
+          isi: [
+            'Menurut Pasal 90 UU Nomor 22 Tahun 2009, pengemudi kendaraan umum bekerja paling lama 8 jam sehari. Setelah mengemudi 4 jam berturut-turut, pengemudi wajib beristirahat paling singkat 30 menit.',
+          ],
+        } },
+        'Penumpang juga berperan menjaga keselamatan:',
+        { daftar: [
+          'Kenali letak pintu darurat, alat pemecah kaca, dan alat pemadam api ringan.',
+          'Gunakan sabuk keselamatan bila tersedia.',
+          'Jangan membawa barang berbahaya atau mudah terbakar.',
+          'Laporkan kepada awak bila melihat hal yang membahayakan.',
+        ] },
+      ],
+    },
+    {
+      judul: 'Standar Pelayanan Minimal',
+      isi: [
+        'Standar Pelayanan Minimal (SPM) adalah ukuran terendah pelayanan yang wajib dipenuhi perusahaan angkutan umum. SPM angkutan orang dalam trayek diatur dalam Peraturan Menteri Perhubungan Nomor PM 98 Tahun 2013 yang diubah dengan PM 29 Tahun 2015. SPM mencakup enam aspek:',
+        { tabel: {
+          kolom: ['Aspek', 'Contoh penerapan'],
+          lebar: [1.2, 3.3],
+          baris: [
+            ['Keamanan', 'Identitas awak yang jelas dan penerangan yang cukup di dalam bus.'],
+            ['Keselamatan', 'Kendaraan laik jalan serta tersedianya alat pemecah kaca, alat pemadam api, dan pintu darurat.'],
+            ['Kenyamanan', 'Kebersihan bus, pendingin udara atau ventilasi, dan kapasitas penumpang sesuai ketentuan.'],
+            ['Keterjangkauan', 'Tarif yang wajar dan kemudahan menjangkau titik keberangkatan.'],
+            ['Kesetaraan', 'Kursi prioritas bagi penyandang disabilitas, lansia, ibu hamil, dan anak-anak.'],
+            ['Keteraturan', 'Jadwal yang pasti serta informasi perjalanan yang jelas.'],
+          ],
+        } },
+        'Setiap karyawan, dari pengemudi hingga petugas loket, ikut bertanggung jawab memastikan standar ini terpenuhi setiap hari.',
+      ],
+    },
+    {
+      judul: 'Pemesanan Tiket dan Pengaduan',
+      isi: [
+        'Tiket DAMRI dapat dibeli melalui beberapa kanal resmi:',
+        { daftar: [
+          '**DAMRI Apps**, tersedia di Android dan iOS.',
+          '**Situs resmi** damri.co.id.',
+          '**Loket resmi** DAMRI di pool, terminal, dan titik keberangkatan.',
+          '**Mitra penjualan** resmi, misalnya Traveloka, redBus, dan tiket.com.',
+        ] },
+        'Cara memesan tiket melalui DAMRI Apps:',
+        { langkah: [
+          'Unduh dan buka DAMRI Apps, lalu daftar atau masuk ke akun.',
+          'Pilih jenis layanan, kota asal, kota tujuan, dan tanggal keberangkatan.',
+          'Pilih jadwal, kelas, dan nomor kursi.',
+          'Isi data penumpang dengan benar.',
+          'Lakukan pembayaran melalui metode yang tersedia.',
+          'Simpan tiket elektronik dan tunjukkan kepada petugas saat keberangkatan.',
+        ] },
+        'Untuk informasi, saran, dan pengaduan, masyarakat dapat menghubungi kanal resmi berikut.',
+        { tabel: {
+          kolom: ['Kanal', 'Kontak'],
+          lebar: [1.6, 2.9],
+          baris: [
+            ['Call center Halo DAMRI', '1500-825'],
+            ['WhatsApp', '0811-2110-0825'],
+            ['Surel', 'cs@damri.co.id'],
+            ['Situs web', 'damri.co.id'],
+            ['Media sosial', '@damriindonesia'],
+          ],
+        } },
+        { kotak: {
+          judul: 'Waspada penipuan',
+          isi: 'Beli tiket hanya melalui kanal resmi dan jangan mentransfer uang ke rekening pribadi yang mengatasnamakan DAMRI.',
+        } },
+      ],
+    },
   ],
 };
 
@@ -203,7 +580,18 @@ const BAB_INSAN = {
   ],
 };
 
-const BAB = [];
+const BAB = [
+  BAB_MENGENAL,
+  BAB_SEJARAH,
+  { no: 'III', judul: 'Visi, Misi, dan Budaya Perusahaan',
+    pembuka: 'Visi, misi, dan nilai-nilai perusahaan menjadi pegangan bersama seluruh insan DAMRI.',
+    sub: [VISI_MISI, NILAI_AKHLAK, ETIKA_KERJA] },
+  BAB_ORGANISASI,
+  BAB_LAYANAN,
+  BAB_LAMPUNG,
+  BAB_KESELAMATAN,
+  BAB_INSAN,
+];
 
 const PENUTUP = [
   'Demikian buku Pengetahuan Seputar DAMRI ini kami susun. Melalui buku ini, pembaca diajak mengenal DAMRI dari berbagai sisi: sejarah panjangnya sejak 1946, nilai-nilai yang menjadi pegangan, ragam layanan yang diberikan, hingga peran DAMRI Cabang Bandar Lampung dalam melayani masyarakat Lampung.',
@@ -212,6 +600,36 @@ const PENUTUP = [
   'Saran dan masukan untuk penyempurnaan buku ini dapat disampaikan kepada Bagian SDM DAMRI Cabang Bandar Lampung. Terima kasih telah membaca, dan selamat melanjutkan perjalanan bersama DAMRI.',
 ];
 
-const PUSTAKA = [];
+const PUSTAKA = [
+  // Peraturan
+  'Peraturan Pemerintah Nomor 233 Tahun 1961 tentang pembentukan Badan Pimpinan Umum Perusahaan Negara Angkutan Motor "DAMRI".',
+  'Peraturan Pemerintah Nomor 30 Tahun 1982 tentang pengalihan bentuk Perusahaan Negara Angkutan Motor "DAMRI" menjadi Perusahaan Umum.',
+  'Peraturan Pemerintah Nomor 31 Tahun 1984 tentang Perusahaan Umum (Perum) DAMRI.',
+  'Peraturan Pemerintah Nomor 31 Tahun 2002 tentang Perusahaan Umum (Perum) DAMRI.',
+  'Peraturan Pemerintah Nomor 38 Tahun 2018 tentang Perusahaan Umum (Perum) DAMRI.',
+  'Peraturan Pemerintah Nomor 30 Tahun 2023 tentang Penggabungan Perusahaan Umum Pengangkutan Penumpang Djakarta ke dalam Perusahaan Umum DAMRI.',
+  'Undang-Undang Nomor 22 Tahun 2009 tentang Lalu Lintas dan Angkutan Jalan.',
+  'Peraturan Menteri Perhubungan Nomor PM 98 Tahun 2013 tentang Standar Pelayanan Minimal Angkutan Orang dengan Kendaraan Bermotor Umum dalam Trayek, sebagaimana diubah dengan PM 29 Tahun 2015.',
+  'Peraturan Menteri Perhubungan Nomor PM 85 Tahun 2018 tentang Sistem Manajemen Keselamatan Perusahaan Angkutan Umum.',
+  'Surat Edaran Menteri BUMN Nomor SE-7/MBU/07/2020 tentang Nilai-Nilai Utama Sumber Daya Manusia Badan Usaha Milik Negara.',
+  // Sumber resmi perusahaan dan pemerintah
+  'Perum DAMRI. _Sejarah Perusahaan_. https://damri.co.id/id/sejarah-perusahaan',
+  'Perum DAMRI. _Visi dan Misi_. https://damri.co.id/id/vision',
+  'Perum DAMRI. _Struktur DAMRI_. https://www.damri.co.id/struktur-damri',
+  'Perum DAMRI. _Kontak Kami_. https://damri.co.id/id/kontak-kami',
+  'Perum DAMRI. _Launching Logo Baru DAMRI_. https://compro.damri.co.id/artikel/launching-logo-baru-damri.html',
+  'Pemerintah Provinsi Lampung. (2024). _Peningkatan Layanan Transportasi, Pj Gubernur Lampung Resmikan Ruang Tunggu dan 26 Bus DAMRI_. https://lampungprov.go.id/detail-post/peningkatan-layanan-transportasi-pj-gubernur-lampung-resmikan-ruang-tunggu-dan-26-bus-damri',
+  // Pemberitaan dan kajian
+  'CNBC Indonesia. (2023). _Jokowi Resmi Bubarkan Perum PPD, Lebur ke Perum DAMRI_. https://www.cnbcindonesia.com/news/20230608101107-4-444117/jokowi-resmi-bubarkan-perum-ppd-lebur-ke-perum-damri',
+  'Kompas.com. (2023). _Usai Merger, Perum DAMRI Ambil Alih Seluruh Aset PPD Termasuk Armada_. https://money.kompas.com/read/2023/06/19/185314526/usai-merger-perum-damri-ambil-alih-seluruh-aset-ppd-termasuk-armada',
+  'Kompas.com. (2026). _DAMRI Sebut 316 Bus Listrik Telah Beroperasi di Jakarta_. https://otomotif.kompas.com/read/2026/05/29/184100815/damri-sebut-316-bus-listrik-telah-beroperasi-di-jakarta',
+  'Tempo. (2026). _DAMRI Buka Rute Jakarta-Bali, Berapa Tarifnya?_ https://www.tempo.co/hiburan/damri-buka-rute-jakarta-bali-berapa-tarifnya--2116291',
+  'IDN Times Jabar. (2026). _Metro Jabar Trans Kini Dikelola DAMRI_. https://jabar.idntimes.com/news/jawa-barat/metro-jabar-trans-kini-dikelola-damri-tarif-dipastikan-tetap-rp4-900-00-nqtvm-rhz1zj',
+  'Masyarakat Transportasi Indonesia. _Angkutan Jalan Perintis Menggapai Pelosok Mensejahterakan Negeri_. https://mti.or.id/en/angkutan-jalan-perintis-menggapai-pelosok-mensejahterakan-negeri/',
+  'Okezone. (2026). _Bulog hingga Perhutani Tetap Jadi Perum, Wacana Ubah Status Jadi Persero Dihentikan_. https://economy.okezone.com/read/2026/09/17/320/3242742/bulog-hingga-perhutani-tetap-jadi-perum-wacana-ubah-status-jadi-persero-dihentikan',
+  'Antara Lampung. (2026). Berita kesiapan 1.800 bus DAMRI untuk angkutan Lebaran 2026. https://lampung.antaranews.com/berita/817503/damri-siapkan-1800-bus-untuk-layani-proyeksi-27-juta-pemudik',
+  'Transportasi Media. (2026). _Perum DAMRI Raih Penghargaan Bergengsi di Ajang Transportasi Indonesia Award 2026_. https://transportasimedia.com/detail/21293/perum-damri-raih-penghargaan-bergengsi-di-ajang-transportasi-indonesia-award-2026',
+  'Jurnal Atrabis. Kajian makna logo Perum DAMRI. https://jurnal.plb.ac.id/index.php/atrabis/article/download/230/135',
+];
 
 module.exports = { KATA_PENGANTAR, PENANDA_TANGAN, BAB, PENUTUP, PUSTAKA };
